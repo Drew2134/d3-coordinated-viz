@@ -15,7 +15,7 @@ function setMap() {
         .scale(1000)
         .translate([width / 2, height / 2]);
 
-    var path = d3.geo.path()
+    var path = d3.geoPath()
         .projection(prj);
 
     var promises = [];
