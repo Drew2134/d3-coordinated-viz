@@ -33,7 +33,7 @@ function setMap() {
         var usStates = topojson.feature(states, states.objects.states)
 
         var states = map.append("path")
-            .datum(states)
+            .datum(usStates)
             .attr("class", "states")
             .attr("d", path);
 
