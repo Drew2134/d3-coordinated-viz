@@ -1,21 +1,15 @@
-window.onload = function() {
-    var w = 900, h = 500;
+window.onload = setMap();
 
-    var container = d3.select("body")
-        .append("svg")
-        .attr("width", w)
-        .attr("height", h)
-        .attr("class", "container")
-        .style("background-color", "rgba(0,0,0,0.2)")
-    
-    var innerRect = d3.append("rect")
-        .datum(400)
-        .attr("width", 800)
-        .attr("height", 400)
-        .attr("class", "innerRect")
-        .attr("x", 50)
-        .attr("y", 50)
-        .style("fill", "#FFFFFF");
-    
-    console.log(innerRect);
-};
+function setMap() {
+    var promises = [];
+    promises.push(d3.csv("data/education_attainment.csv")); //load education tabular data
+    promises.push(d3.json("data/states.topojson")); //load background states shapes
+    promises.push(d3.json("data/tracts.toposjon")); //load foreground tracts shapes
+    Promise.all(promises).then(callback);
+
+    function callback(data) {
+        csvData = data[0];
+        states = data[1];
+        tracts = data[2];
+    }
+}
