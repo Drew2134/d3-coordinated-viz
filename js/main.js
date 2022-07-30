@@ -30,10 +30,12 @@ function setMap() {
 		states = data[1];
 		tracts = data[2];
 
+        var usStates = topojson.feature(states, states.objects.states)
+
         var states = map.append("path")
-            .datum(toposon.feature(
-                states, states.objects.states
-            ))
+            .datum(states)
+            .attr("class", "states")
+            .attr("d", path);
 
         console.log(csvData, states, tracts)
     }
