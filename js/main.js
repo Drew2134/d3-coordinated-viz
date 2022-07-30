@@ -25,9 +25,14 @@ function setMap() {
     Promise.all(promises).then(callback);
 
     function callback(data) {
+
+		csvData = data[0];
+		states = data[1];
+		tracts = data[2];
+
         var states = map.append("path")
             .datum(toposon.feature(
-                data[1], data[1].objects
+                states, states.objects.states
             ))
 
         console.log(csvData, states, tracts)
