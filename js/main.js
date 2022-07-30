@@ -11,5 +11,6 @@ function setMap() {
         csvData = data[0];
         states = data[1];
         tracts = data[2];
+        console.log(csvData, states, tracts)
     }
 }
