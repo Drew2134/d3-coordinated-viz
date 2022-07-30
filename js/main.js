@@ -8,7 +8,7 @@ function setMap() {
         .attr("width", width)
         .attr("height", height);
 
-    var prj = d3.geo.albers()
+    var prj = d3.geoAlbers()
         .center([-8, 46.2])
         .rotate([-10, 0])
         .parallels([43, 62])
@@ -29,7 +29,7 @@ function setMap() {
             .datum(toposon.feature(
                 data[1], data[1].objects
             ))
-            
+
         console.log(csvData, states, tracts)
     }
 }
