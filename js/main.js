@@ -27,10 +27,10 @@ function setMap() {
     function callback(data) {
 
 		csvData = data[0];
-		states = data[1];
-		tracts = data[2];
+		statesData = data[1];
+		tractsData = data[2];
 
-        var usStates = topojson.feature(states, states.objects.states)
+        var usStates = topojson.feature(statesData, statesData.objects.states)
 
         var states = map.append("path")
             .datum(usStates)
