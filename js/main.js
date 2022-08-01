@@ -30,11 +30,11 @@ function setMap() {
 		states = data[1];
 		tracts = data[2];
 
-        var usStates = topojson.feature(states, states.objects.states),
-            dcTracts = topojson.feature(tracts, tracts.objects.tracts)
+        var usStates = topojson.feature(states, states.objects.states)
 
-        var states = map.append(".states")
-            .data(usStates)
+        var states = map.append("path")
+            .datum(usStates)
+            .attr("class", "states")
             .attr("d", path);
     }
 }
