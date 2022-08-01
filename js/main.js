@@ -33,11 +33,8 @@ function setMap() {
         var usStates = topojson.feature(states, states.objects.states),
             dcTracts = topojson.feature(tracts, tracts.objects.tracts)
 
-        var states = map.selectAll(".tracts")
-            .data(dcTracts)
-            .attr("class", function(d) {
-                return d.properties.NAMELSD;
-            })
+        var states = map.append(".states")
+            .data(usStates)
             .attr("d", path);
     }
 }
