@@ -30,13 +30,14 @@ function setMap() {
 		states = data[1];
 		tracts = data[2];
 
-        var usStates = topojson.feature(states, states.objects.states)
+        var usStates = topojson.feature(states, states.objects.states),
+            dcTracts = topojson.feature(tracts, tracts.objects.tracts)
 
-        var states = map.append("path")
-            .datum(usStates)
-            .attr("class", "states")
+        var states = map.selectAll(".tracts")
+            .data(dcTracts)
+            .attr("class", function(d) {
+                return d.properties.NAMELSD;
+            })
             .attr("d", path);
-
-        console.log(csvData, states, tracts)
     }
 }
