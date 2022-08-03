@@ -23,7 +23,7 @@ function setMap() {
         .rotate([77.0369, 0])
         .parallels([35, 40])
         .scale(225000)
-        .translate([mWidth / 2, mHeight / 2]);
+        .translate([$(".map").width / 2, $(".map").height / 2]);
 
     var path = d3.geoPath()
         .projection(prj);
