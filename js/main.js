@@ -46,3 +46,8 @@ function setMap() {
 function setInset() {
     console.log("Inset Map")
 }
+
+addEventListener("resize", (event) => {
+    $("map").width = (window.innerWidth - 16) * 0.65;
+    $("map").height = window.innerHeight - 16
+})
