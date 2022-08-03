@@ -10,8 +10,7 @@ function setMap() {
         .append("svg")
         .attr("width", width)
         .attr("height", height)
-        .attr("class", "map")
-        .attr("border", "medium solid #2f2f2f");
+        .attr("class", "map");
 
     var prj = d3.geoAlbers()
         .center([0, 38.90])
