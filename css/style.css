@@ -6,11 +6,12 @@
 
 .map {
     border: medium solid #9f9f9f;
+    margin: 10px 0px 0px 20px;
 }
 
 .chart {
     background-color: rgba(128,128,128,.2);
-    border: medium solid #999;
+    border: medium solid #9f9f9f;
     float: right;
     margin: 10px 20px 0 0;
 }
