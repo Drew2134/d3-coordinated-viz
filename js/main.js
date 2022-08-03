@@ -41,10 +41,20 @@ function setMap() {
 		tractsData = data[2];
 
         var usStates = topojson.feature(statesData, statesData.objects.states)
+        var dcTracts = topojson.feature(tractsData, tractsData.objects.tracts)
 
         var states = map.append("path")
             .datum(usStates)
             .attr("class", "states")
+            .attr("d", path);
+
+        var tracts = map.selectAll(".tracts")
+            .data(dcTracts)
+            .enter()
+            .append("path")
+            .attr("class", function(d) {
+                return d.properties.NAME;
+            })
             .attr("d", path);
     }
 }
