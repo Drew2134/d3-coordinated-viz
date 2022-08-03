@@ -4,7 +4,8 @@ window.onload = (event) => {
 };
 
 function setMap() {
-    var width = 850, height = 800;
+    var width = window.innerWidth * 0.50,
+        height = 900;
 
     var mapDiv = d3.select("body")
         .append("div")
@@ -60,5 +61,16 @@ function setMap() {
 }
 
 function setInset() {
-    console.log("Inset Map")
+    console.log("Inset Map");
+}
+
+function setChart() {
+    var chartWidth = window.innerWidth * 0.425,
+        chartHeight = 460;
+
+    var chart = d3.select("body")
+        .append("svg")
+        .attr("width", chartWidth)
+        .attr("height", chartHeight)
+        .attr("class", "chart");
 }
