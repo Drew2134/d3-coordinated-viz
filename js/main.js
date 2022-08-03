@@ -4,7 +4,7 @@ window.onload = (event) => {
 };
 
 function setMap() {
-    var width = 750, height = 600;
+    var width = 850, height = 800;
 
     var mapDiv = d3.select("body")
         .append("div")
