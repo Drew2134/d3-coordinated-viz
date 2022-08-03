@@ -13,7 +13,7 @@ function setMap() {
         .attr("class", "map");
 
     var prj = d3.geoAlbers()
-        .center([0, 38.9072])
+        .center([0, 38.90])
         .rotate([77.0369, 0])
         .parallels([35, 40])
         .scale(250000)
