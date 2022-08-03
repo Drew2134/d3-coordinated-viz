@@ -6,7 +6,8 @@ function setMap() {
     var map = d3.select("body")
         .append("svg")
         .attr("width", width)
-        .attr("height", height);
+        .attr("height", height)
+        .attr("class", "map");
 
     var prj = d3.geoAlbers()
         .center([0, 38.9072])
