@@ -4,12 +4,12 @@ window.onload = (event) => {
 };
 
 function setMap() {
-    var mWidth = (window.innerWidth - 16) * 0.65, mHeight = window.innerHeight - 16;
+    var width = (window.innerWidth - 16) * 0.65, height = window.innerHeight - 16;
 
     var mapDiv = d3.select("body")
         .append("div")
-        .attr("width", mWidth)
-        .attr("height", mHeight)
+        .attr("width", width)
+        .attr("height", height)
         .attr("class", "mapDiv")
 
     var map = d3.select(".mapDiv")
@@ -23,7 +23,7 @@ function setMap() {
         .rotate([77.0369, 0])
         .parallels([35, 40])
         .scale(225000)
-        .translate([$(".map").width / 2, $(".map").height / 2]);
+        .translate([width / 2, height / 2]);
 
     var path = d3.geoPath()
         .projection(prj);
