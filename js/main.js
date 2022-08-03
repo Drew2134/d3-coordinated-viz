@@ -4,12 +4,18 @@ window.onload = (event) => {
 };
 
 function setMap() {
-    var width = (window.innerWidth - 16) * 0.65, height = window.innerHeight - 16;
+    var mWidth = (window.innerWidth - 16) * 0.65, mHeight = window.innerHeight - 16;
 
-    var map = d3.select("body")
+    var mapDiv = d3.select("body")
+        .append("div")
+        .attr("width", mWidth)
+        .attr("height", mHeight)
+        .attr("class", "mapDiv")
+
+    var map = d3.select(".mapDiv")
         .append("svg")
-        .attr("width", width)
-        .attr("height", height)
+        .attr("width", "100%")
+        .attr("height", "100%")
         .attr("class", "map");
 
     var prj = d3.geoAlbers()
@@ -46,9 +52,3 @@ function setMap() {
 function setInset() {
     console.log("Inset Map")
 }
-
-$(window).on("resize", (event) => {
-    console.log("resize");
-    $(".map").width = (window.innerWidth - 16) * 0.65;
-    $(".map").height = window.innerHeight - 16;
-});
