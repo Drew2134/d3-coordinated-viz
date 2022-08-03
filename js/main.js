@@ -49,4 +49,6 @@ function setInset() {
 
 $(window).on("resize", (event) => {
     console.log("resize");
+    $(".map").width = (window.innerWidth - 16) * 0.65;
+    $(".map").height = window.innerHeight - 16;
 });
