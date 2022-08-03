@@ -1,6 +1,7 @@
 window.onload = (event) => {
     setMap();
     setInset();
+    setChart();
 };
 
 function setMap() {
