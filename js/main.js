@@ -1,4 +1,7 @@
-window.onload = setMap();
+window.onload = (event) => {
+    setMap();
+    setInset();
+};
 
 function setMap() {
     var width = screen.availWidth * 0.65, height = screen.availHeight * 0.80;
@@ -38,4 +41,8 @@ function setMap() {
             .attr("class", "states")
             .attr("d", path);
     }
+}
+
+function setInset() {
+    console.log("Inset Map")
 }
