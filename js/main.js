@@ -4,7 +4,7 @@ window.onload = (event) => {
 };
 
 function setMap() {
-    var width = $("body").width() * 0.65, height = $("body").height();
+    var width = ($("body").width() - 16) * 0.65, height = $("body").height() - 16;
 
     var map = d3.select("body")
         .append("svg")
