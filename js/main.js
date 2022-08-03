@@ -12,10 +12,10 @@ function setMap() {
         .attr("height", height)
         .attr("class", "mapDiv")
 
-    var map = d3.select(".mapDiv")
+    var map = d3.select("body")
         .append("svg")
-        .attr("width", "100%")
-        .attr("height", "100%")
+        .attr("width", width)
+        .attr("height", height)
         .attr("class", "map");
 
     var prj = d3.geoAlbers()

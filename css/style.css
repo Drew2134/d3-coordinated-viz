@@ -1,12 +1,3 @@
-html, body {
-    height: 100%;
-    width: 100%;
-    display: flex;
-    margin: 0;
-    padding: 5px;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-}
-
 .states {
     fill: #fff;
     stroke: #000;
