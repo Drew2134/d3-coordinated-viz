@@ -1,14 +1,5 @@
-html, body {
-    height: 100%;
-    width: 100%;
-}
-
 .states {
     fill: #fff;
     stroke: #000;
     stroke-width: 1px;
-}
-
-.map {
-    border: medium solid #2f2f2f;
 }
