@@ -23,7 +23,7 @@ function setMap() {
     var prj = d3.geoAlbers()
         .center([0, 38.90])
         .rotate([77.0369, 0])
-        .parallels([35, 39])
+        .parallels([35, 38])
         .scale(175000)
         .translate([width / 2, height / 2]);
 
