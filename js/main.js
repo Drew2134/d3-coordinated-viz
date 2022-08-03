@@ -40,8 +40,8 @@ function setMap() {
 		statesData = data[1];
 		tractsData = data[2];
 
-        var usStates = topojson.feature(statesData, statesData.objects.states)
-        var dcTracts = topojson.feature(tractsData, tractsData.objects.tracts)
+        var usStates = topojson.feature(statesData, statesData.objects.states);
+        var dcTracts = topojson.feature(tractsData, tractsData.objects.tracts).features;
 
         var states = map.append("path")
             .datum(usStates)
