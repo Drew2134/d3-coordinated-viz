@@ -1,7 +1,7 @@
 window.onload = setMap();
 
 function setMap() {
-    var width = screen.availWidth * 0.65, height = screen.availHeight;
+    var width = screen.availWidth * 0.65, height = screen.availHeight * 0.80;
 
     var map = d3.select("body")
         .append("svg")
@@ -13,7 +13,7 @@ function setMap() {
         .center([0, 38.9072])
         .rotate([77.0369, 0])
         .parallels([35, 40])
-        .scale(10000)
+        .scale(50000)
         .translate([width / 2, height / 2]);
 
     var path = d3.geoPath()
