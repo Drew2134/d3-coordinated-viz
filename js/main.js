@@ -17,8 +17,6 @@ function setMap() {
 
     var map = d3.select(".mapDiv")
         .append("svg")
-        .attr("width", width)
-        .attr("height", height)
         .attr("preserveAspectRatio", "xMinYMin meet")
         .attr("viewBox", viewBox)
         .classed("map", true);
