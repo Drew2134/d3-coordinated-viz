@@ -6,7 +6,8 @@ window.onload = (event) => {
 
 function setMap() {
     var width = window.innerWidth * 0.48,
-        height = window.innerHeight * 0.85;
+        height = window.innerHeight * 0.85,
+        viewBox = "0 0 " + width + " " + height;
 
     var mapDiv = d3.select("body")
         .append("div")
