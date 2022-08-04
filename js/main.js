@@ -24,7 +24,7 @@ function setMap() {
         .center([0, 38.895])
         .rotate([77.038, 0])
         .parallels([35, 38])
-        .scale(225000)
+        .scale(275000)
         .translate([width / 2, height / 2]);
 
     var path = d3.geoPath()
