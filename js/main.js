@@ -6,7 +6,7 @@ window.onload = (event) => {
 
 function setMap() {
     var width = window.innerWidth * 0.48,
-        height = 700;
+        height = window.innerHeight * 0.90;
 
     var mapDiv = d3.select("body")
         .append("div")
@@ -22,7 +22,7 @@ function setMap() {
 
     var prj = d3.geoAlbers()
         .center([0, 38.895])
-        .rotate([77.0369, 0])
+        .rotate([77.038, 0])
         .parallels([35, 38])
         .scale(175000)
         .translate([width / 2, height / 2]);
@@ -32,7 +32,7 @@ function setMap() {
 
     var promises = [];
     promises.push(d3.csv("data/education_attainment.csv")); //load education tabular data
-    promises.push(d3.json("data/states.topojson")); //load background states shapes
+    promises.push(d3.json("data/states2.topojson")); //load background states shapes
     promises.push(d3.json("data/tracts.topojson")); //load foreground tracts shapes
     Promise.all(promises).then(callback);
 
