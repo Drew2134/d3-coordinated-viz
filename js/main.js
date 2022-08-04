@@ -18,6 +18,7 @@ function setMap() {
         .append("svg")
         .attr("width", width)
         .attr("height", height)
+        .attr("background-ground", "#D5E3FF")
         .attr("class", "map");
 
     var prj = d3.geoAlbers()
