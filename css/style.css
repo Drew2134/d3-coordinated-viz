@@ -1,3 +1,7 @@
+html, body {
+    overflow: hidden;
+}
+
 .mapDiv {
     display: inline-block;
     position: relative;
