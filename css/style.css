@@ -1,13 +1,26 @@
+.mapDiv {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    padding-bottom: 100%;
+    vertical-align: bottom;
+    overflow: hidden;
+}
+
+.map {
+    display: inline-block;
+    position: absolute;
+    top: 5px;
+    left: 0px;
+    border: medium solid #9f9f9f;
+    margin: 10px 0px 0px 20px;
+    background-color: #D5E3FF;
+}
+
 .states {
     fill: #fff;
     stroke: #000;
     stroke-width: 1px;
-}
-
-.map {
-    border: medium solid #9f9f9f;
-    margin: 10px 0px 0px 20px;
-    background-color: #D5E3FF;
 }
 
 .chart {
