@@ -5,7 +5,7 @@ html, body {
 .mapDiv {
     display: inline-block;
     position: relative;
-    width: 45%;
+    width: 47%;
     padding: 10px 0px 0px 20px;
     padding-bottom: 100%; /* aspect ratio */
     vertical-align: top;
@@ -31,7 +31,7 @@ html, body {
 .chartDiv {
     position: relative;
     float: right;
-    width: 45%;
+    width: 47%;
     padding: 10px 0px 0px 20px;
     padding-bottom: 100%; /* aspect ratio */
     vertical-align: top;
@@ -39,6 +39,10 @@ html, body {
   }
 
 .chart {
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: 0;
     background-color: rgba(128,128,128,.2);
     border: medium solid #9f9f9f;
     margin: 10px 20px 0 0;
