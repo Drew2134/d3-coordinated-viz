@@ -18,14 +18,14 @@ function setMap() {
         .append("svg")
         .attr("width", width)
         .attr("height", height)
-        .attr("background-ground", "#D5E3FF")
+        .attr("background-color", "#D5E3FF")
         .attr("class", "map");
 
     var prj = d3.geoAlbers()
         .center([0, 38.895])
         .rotate([77.038, 0])
         .parallels([35, 38])
-        .scale(250000)
+        .scale(235000)
         .translate([width / 2, height / 2]);
 
     var path = d3.geoPath()
