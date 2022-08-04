@@ -13,14 +13,14 @@ function setMap() {
         .append("div")
         .attr("width", width)
         .attr("height", height)
-        .attr("preserveAspectRatio", "xMinYMin meet")
-        .attr("viewBox", viewBox)
         .attr("class", "mapDiv")
 
     var map = d3.select(".mapDiv")
         .append("svg")
         .attr("width", width)
         .attr("height", height)
+        .attr("preserveAspectRatio", "xMinYMin meet")
+        .attr("viewBox", viewBox)
         .attr("class", "map");
 
     var prj = d3.geoAlbers()
