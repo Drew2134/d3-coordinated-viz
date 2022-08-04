@@ -14,7 +14,7 @@ function setMap() {
         .attr("width", width)
         .attr("height", height)
         .attr("preserveAspectRatio", "xMinYMin meet")
-        .attr("viewBox", "0 0 600 400")
+        .attr("viewBox", viewBox)
         .attr("class", "mapDiv")
 
     var map = d3.select(".mapDiv")
