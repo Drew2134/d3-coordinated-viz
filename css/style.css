@@ -3,7 +3,6 @@
     position: relative;
     padding-bottom: 100%; /* aspect ratio */
     vertical-align: top;
-    overflow: hidden;
   }
 
 .map {
