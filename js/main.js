@@ -17,11 +17,11 @@ function setMap() {
     var map = d3.select("body")
         .append("svg")
         .attr("width", width)
-        .attr("height", height)\
+        .attr("height", height)
         .attr("class", "map");
 
     var prj = d3.geoAlbers()
-        .center([0, 38.897])
+        .center([0, 38.90])
         .rotate([77.038, 0])
         .parallels([35, 38])
         .scale(235000)
