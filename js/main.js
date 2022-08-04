@@ -14,7 +14,7 @@ function setMap() {
         .attr("height", height)
         .attr("class", "mapDiv")
 
-    var map = d3.select("#mapDiv")
+    var map = d3.select(".mapDiv")
         .append("svg")
         .attr("width", width)
         .attr("height", height)
