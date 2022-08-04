@@ -77,7 +77,7 @@ function setChart() {
         .attr("height", height)
         .classed("chartDiv", true)
 
-    var chart = d3.select("chartDiv")
+    var chart = d3.select(".chartDiv")
         .append("svg")
         .attr("preserveAspectRatio", "xMinYMin meet")
         .attr("viewBox", viewBox)
