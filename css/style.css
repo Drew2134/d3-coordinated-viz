@@ -1,14 +1,16 @@
 .mapDiv {
     display: inline-block;
     position: relative;
+    width: 100%;
     padding-bottom: 100%; /* aspect ratio */
     vertical-align: top;
+    overflow: hidden;
   }
 
 .map {
     display: inline-block;
     position: absolute;
-    top: 10px;
+    top: 0;
     left: 0;
     border: medium solid #9f9f9f;
     margin: 10px 0px 0px 20px;
