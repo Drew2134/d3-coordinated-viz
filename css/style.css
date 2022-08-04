@@ -24,6 +24,10 @@
     stroke-width: 1px;
 }
 
+.chartDiv {
+    background-color: #000;
+}
+
 .chart {
     background-color: rgba(128,128,128,.2);
     border: medium solid #9f9f9f;

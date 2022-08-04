@@ -67,12 +67,19 @@ function setInset() {
 }
 
 function setChart() {
-    var chartWidth = window.innerWidth * 0.48,
-        chartHeight = 700;
+    var width = window.innerWidth * 0.48,
+        height = window.innerHeight * 0.85,
+        viewBox = "0 0 " + width + " " + height;
 
-    var chart = d3.select("body")
+    var chartDiv = d3.select("body")
+        .append("div")
+        .attr("width", width)
+        .attr("height", height)
+        .classed("chartDiv", true)
+
+    var chart = d3.select("chartDiv")
         .append("svg")
-        .attr("width", chartWidth)
-        .attr("height", chartHeight)
-        .attr("class", "chart");
+        .attr("preserveAspectRatio", "xMinYMin meet")
+        .attr("viewBox", viewBox)
+        .classed("chart", true);
 }
