@@ -102,7 +102,7 @@ function setInset() {
         var usStates = topojson.feature(statesData, statesData.objects.states);
         var dcTracts = topojson.feature(tractsData, tractsData.objects.tracts).features;
 
-        var states = map.append("path")
+        var states = inset.append("path")
             .datum(usStates)
             .attr("class", "states")
             .attr("d", path);
