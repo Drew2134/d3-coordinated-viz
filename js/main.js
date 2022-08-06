@@ -63,7 +63,15 @@ function setMap() {
 }
 
 function setInset() {
-    console.log("Inset Map");
+    var width = 300,
+        height = 300
+        viewBox = "0 0 300 300";
+    
+        var insetDiv = d3.select("body")
+            .append("div")
+            .attr("width", width)
+            .attr("height", height)
+            .classed("insetDiv", true)
 }
 
 function setChart() {
