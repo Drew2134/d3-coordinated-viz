@@ -16,8 +16,8 @@ html, body {
     width: 200px;
     height: 200px;
     position: relative;
-    bottom: 0px;
-    left: 0px;
+    bottom: -570px;
+    left: 20px;
 }
 
 .map {
