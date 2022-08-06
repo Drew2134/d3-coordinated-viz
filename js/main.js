@@ -121,7 +121,7 @@ function setInset() {
 function setChart() {
     var width = window.innerWidth * 0.48,
         height = window.innerHeight * 0.85,
-        viewBox = "0 0 ${width}" + " " + height;
+        viewBox = "0 0 " + width + " " + height;
 
     var chartDiv = d3.select("body")
         .append("div")
