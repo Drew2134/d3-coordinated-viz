@@ -17,7 +17,6 @@ function setMap() {
 
     var map = d3.select(".mapDiv")
         .append("svg")
-        .attr("viewBox", viewBox)
         .classed("map", true);
 
     var prj = d3.geoAlbers()
@@ -74,8 +73,6 @@ function setInset() {
     
     var inset = d3.select(".insetDiv")
         .append("svg")
-        .attr("preserveAspectRatio", "xMinYMin meet")
-        .attr("viewBox", viewBox)
         .classed("inset", true)
     
     var prj = d3.geoAlbers()
