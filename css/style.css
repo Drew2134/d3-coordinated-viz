@@ -15,7 +15,7 @@ html, body {
 .insetDiv {
     position: absolute;
     top: 5px;
-    right: 0px;
+    left: 0px;
 }
 
 .map {
