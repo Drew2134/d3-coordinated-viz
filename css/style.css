@@ -10,7 +10,13 @@ html, body {
     padding-bottom: 100%; /* aspect ratio */
     vertical-align: top;
     overflow: hidden;
-  }
+}
+
+.insetDiv {
+    position: absolute;
+    top: 5px;
+    right: 0px;
+}
 
 .map {
     display: inline-block;
@@ -36,7 +42,7 @@ html, body {
     padding-bottom: 100%; /* aspect ratio */
     vertical-align: top;
     overflow: hidden;
-  }
+}
 
 .chart {
     display: inline-block;
