@@ -92,7 +92,7 @@ function setInset() {
     var promises = [];
     promises.push(d3.json("data/states.topojson"));
     promises.push(d3.json("data/tracts.topojson"));
-    promises.all(promises).then(callback);
+    Promise.all(promises).then(callback);
 
     function callback(data) {
 
