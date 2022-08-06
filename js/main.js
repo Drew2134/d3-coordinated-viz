@@ -67,7 +67,7 @@ function setInset() {
         height = 300
         viewBox = "0 0 300 300";
     
-    var insetDiv = d3.select("mapDiv")
+    var insetDiv = d3.select(".mapDiv")
         .append("div")
         .attr("width", width)
         .attr("height", height)
