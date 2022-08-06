@@ -7,7 +7,6 @@ html, body {
     position: relative;
     width: 47%;
     padding: 10px 0px 0px 20px;
-    padding-bottom: 100%; /* aspect ratio */
     vertical-align: top;
     overflow: hidden;
 }
@@ -15,7 +14,7 @@ html, body {
 .insetDiv {
     width: 200px;
     height: 200px;
-    position: absolute;
+    position: inherit;
     bottom: 5px;
     left: 0px;
 }
