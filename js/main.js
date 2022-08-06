@@ -107,7 +107,7 @@ function setInset() {
             .attr("class", "states")
             .attr("d", path);
 
-        var tracts = map.selectAll(".tracts")
+        var tracts = inset.selectAll(".tracts")
             .data(dcTracts)
             .enter()
             .append("path")
