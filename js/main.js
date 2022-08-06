@@ -135,3 +135,5 @@ function setChart() {
         .attr("viewBox", viewBox)
         .classed("chart", true);
 }
+
+window.addEventListener("resize", setMap)
