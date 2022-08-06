@@ -71,7 +71,51 @@ function setInset() {
         .append("div")
         .attr("width", width)
         .attr("height", height)
-        .classed("insetDiv", true)
+        .classed("insetDiv", true);
+    
+    var inset = d3.select(".insetDiv")
+        .append("svg")
+        .attr("preserveAspectRatio", "xMinyMin meet")
+        .attr("viewBox", viewBox)
+        .classed("inset", true)
+    
+    var prj = d3.geoAlbers()
+        .center([0, 38.90])
+        .rotate([77.038, 0])
+        .parallels([35, 38])
+        .scale(150000)
+        .translate([width / 2, height / 2]);
+    
+    var path = d3.geoPath()
+        .projection(prj)
+
+    var promises = [];
+    promises.push(d3.json("data/states.topojson"));
+    promises.push(d3.json("data/tracts.topojson"));
+    promises.all(promises).then(callback);
+
+    function callback(data) {
+
+		statesData = data[0];
+		tractsData = data[1];
+
+        var usStates = topojson.feature(statesData, statesData.objects.states);
+        var dcTracts = topojson.feature(tractsData, tractsData.objects.tracts).features;
+
+        var states = map.append("path")
+            .datum(usStates)
+            .attr("class", "states")
+            .attr("d", path);
+
+        var tracts = map.selectAll(".tracts")
+            .data(dcTracts)
+            .enter()
+            .append("path")
+            .attr("class", function(d) {
+                return d.properties.NAME;
+            })
+            .attr("d", path);
+    }
 }
 
 function setChart() {
