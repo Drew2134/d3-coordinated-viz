@@ -75,7 +75,7 @@ function setInset() {
     
     var inset = d3.select(".insetDiv")
         .append("svg")
-        .attr("preserveAspectRatio", "xMinyMin meet")
+        .attr("preserveAspectRatio", "xMinYMin meet")
         .attr("viewBox", viewBox)
         .classed("inset", true)
     
