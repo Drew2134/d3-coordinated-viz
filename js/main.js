@@ -201,7 +201,7 @@
             .attr("x", function(d, i){
                 return i * (width / csvData.length);
             })
-            .attr("height", height)
+            .attr("height", 460)
             .attr("y", 0);
     }
 })();
