@@ -33,8 +33,8 @@ function setMap() {
 
     var promises = [];
     promises.push(d3.csv("data/education_attainment.csv")); //load education tabular data
-    promises.push(d3.json("data/states_final.topojson")); //load background states shapes
-    promises.push(d3.json("data/tracts_final.topojson")); //load foreground tracts shapes
+    promises.push(d3.json("data/states_main.topojson")); //load background states shapes
+    promises.push(d3.json("data/tracts_main.topojson")); //load foreground tracts shapes
     Promise.all(promises).then(callback);
 
     function callback(data) {
