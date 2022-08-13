@@ -84,7 +84,7 @@
             var val = parseFloat(data[i][expressed] / data[i][pop]);
             domainArray.push(val);
         };
-        console.log(domainArray)
+        console.log(colorScale.domain(domainArray))
         colorScale.domain(domainArray);
 
         return colorScale;
