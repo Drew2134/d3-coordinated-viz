@@ -38,7 +38,7 @@
         promises.push(d3.csv("data/education_attainment.csv")); //load education tabular data
         promises.push(d3.json("data/states_main.topojson")); //load background states shapes
         promises.push(d3.json("data/tracts_main.topojson")); //load foreground tracts shapes
-        promises.push(d3.json("data/tracts_inset.topojson")); //load foreground tracts shapes
+        promises.push(d3.json("data/tracts_inset.topojson")); //load inset tracts shapes
         Promise.all(promises).then(callback);
 
         function callback(data, csvData, usStates, dcTracts, coreTracts) {
@@ -46,11 +46,11 @@
             csvData = data[0];
             statesData = data[1];
             tractsData = data[2];
-            coreTracts = data[3];
+            coreTractsData = data[3];
 
             var usStates = topojson.feature(statesData, statesData.objects.states_final);
             var tracts = topojson.feature(tractsData, tractsData.objects.tracts_final).features;
-            var lowTracts = topojson.feature(coreTracts, coreTracts.objects.tracts_final).features;
+            var lowTracts = topojson.feature(coreTractsData, coreTractsData.objects.tracts_final).features;
             
             var states = map.append("path")
                 .datum(usStates)
