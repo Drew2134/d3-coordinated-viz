@@ -1,8 +1,7 @@
 (function(){
 
-    var eduAttrs = ["total_population", "noHighSchool", "someHighSchool", "highSchoolGraduate", "someCollege", "associates", "bachelors", "graduate"];
-    var pop = eduAttrs[0];
-    var expressed = eduAttrs[1];
+    var eduAttrs = ["noHighSchool", "someHighSchool", "highSchoolGraduate", "someCollege", "associates", "bachelors", "graduate"];
+    var expressed = eduAttrs[0];
     
     window.onload = (event) => {
         setMap();
@@ -118,7 +117,6 @@
             })
             .attr("d", path)
             .style("fill", function(d){
-                console.log(expressed, d.properties, d.properties[expressed]);
                 return colorScale(d.properties[expressed])
             });
     }
