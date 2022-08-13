@@ -74,23 +74,15 @@
             "#006d2c"
         ];
 
-        var colorScale = d3.scaleThreshold()
-            .range(colorClasses);
-
         var domainArray = [];
         for (var i=0; i < data.length; i++){
             var val = parseFloat((data[i][expressed] / data[i][pop]) * 100);
             domainArray.push(val);
         };
 
-        var clusters = ckmeans(domainArray, 5);
-        domainArray = clusters.map(function(d){
-            return d3.min(d);
-        })
-
-        domainArray.shift();
-        colorScale.domain(domainArray);
-
+        var colorScale = d3.scaleQuantile()
+            .domain(domainArray)
+            .range(colorClasses);
 
         return colorScale;
     }
