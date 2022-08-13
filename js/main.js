@@ -96,7 +96,9 @@
 
             for (var j=0; j < dcTracts.length; j++){
                 var tractsProps = dcTracts[j].properties;
+                console.log(tractsProps)
                 var tractsKey = tractsProps.NAMELSAD;
+                console.log(tractsKey)
 
                 if (tractsKey = csvKey){
                     eduAttrs.forEach(function(attr){
