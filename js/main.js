@@ -11,7 +11,7 @@
 
     function setMap() {
         var width = window.innerWidth * 0.48,
-            height = window.innerHeight * 0.85,
+            height = window.innerHeight * 0.80,
             viewBox = "0 0 " + width + " " + height;
 
         var mapDiv = d3.select("body")
@@ -181,7 +181,7 @@
 
     function setChart() {
         var width = window.innerWidth * 0.48,
-            height = window.innerHeight * 0.85,
+            height = window.innerHeight * 0.80,
             viewBox = "0 0 " + width + " " + height;
 
         var chartDiv = d3.select("body")
