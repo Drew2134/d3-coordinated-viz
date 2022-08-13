@@ -195,5 +195,19 @@
             .attr("preserveAspectRatio", "xMinYMin meet")
             .attr("viewBox", viewBox)
             .classed("chart", true);
+
+        var bars = chart.selectAll(".bars")
+            .data(csvData)
+            .enter()
+            .append("rect")
+            .attr("class", function(d){
+                return "bars " + d.NAMELSAD
+            })
+            .attr("width", chartWidth / csvData.length - 1)
+            .attr("x", function(d, i){
+                return i * (chartWidth / csvData.length);
+            })
+            .attr("height", 460)
+            .attr("y", 0);
     }
 })();
