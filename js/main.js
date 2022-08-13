@@ -91,7 +91,7 @@
 
     function joinData(dcTracts, csvData){
         for (var i=0; i < csvData.length; i++){
-            csvData[i];
+            console.log(csvData[i]);
             var csvRegion = csvData[i];
             var csvKey = csvRegion.tract_name;
 
