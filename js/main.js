@@ -59,7 +59,7 @@
 
             //var colorScale = setColorScale(csvData);
 
-            //dcTracts = joinData(tracts, csvData);
+            dcTracts = joinData(tracts, csvData);
 
             //setEnumerationUnits(dcTracts, map, path, colorScale);
         }
