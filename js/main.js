@@ -38,18 +38,21 @@
         promises.push(d3.csv("data/education_attainment.csv")); //load education tabular data
         promises.push(d3.json("data/states_main.topojson")); //load background states shapes
         promises.push(d3.json("data/tracts_main.topojson")); //load foreground tracts shapes
+        promises.push(d3.json("data/states_inset.topojson")); //load inset states shapes
         promises.push(d3.json("data/tracts_inset.topojson")); //load inset tracts shapes
         Promise.all(promises).then(callback);
 
-        function callback(data, csvData, usStates, dcTracts, lowTracts) {
+        function callback(data, csvData, usStates, dcTracts, lowStates, lowTracts) {
 
             csvData = data[0];
             statesData = data[1];
             tractsData = data[2];
-            coreTractsData = data[3];
+            coreStatesData = data[3];
+            coreTractsData = data[4];
 
             var usStates = topojson.feature(statesData, statesData.objects.states_final);
             var tracts = topojson.feature(tractsData, tractsData.objects.tracts_final).features;
+            var lowStates = topojson.feature(coreStatesData, coreStatesData.objects.states);
             var lowTracts = topojson.feature(coreTractsData, coreTractsData.objects.tracts).features;
             
             var states = map.append("path")
@@ -63,7 +66,7 @@
 
             setEnumerationUnits(dcTracts, map, path, colorScale);
 
-            setInset(usStates, lowTracts);
+            setInset(lowStates, lowTracts);
 
             setChart(usStates, tracts);
         }
