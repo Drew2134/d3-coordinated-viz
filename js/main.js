@@ -162,6 +162,8 @@
             statesData = data[0];
             tractsData = data[1];
 
+            console.log(tractsData)
+
             var usStates = topojson.feature(statesData, statesData.objects.states);
             var dcTracts = topojson.feature(tractsData, tractsData.objects.tracts).features;
 
