@@ -50,8 +50,17 @@
 
             var usStates = topojson.feature(statesData, statesData.objects.states_final);
             var dcTracts = topojson.feature(tractsData, tractsData.objects.tracts_final).features;
-            console.log(dcTracts)
+
             dcTracts = joinData(dcTracts, csvData);
+            
+            var tracts = map.selectAll(".tracts")
+                .data(dcTracts)
+                .enter()
+                .append("path")
+                .attr("class", function(d) {
+                    return d.properties.NAMELSAD;
+                })
+                .attr("d", path);
 
             setEnumerationUnits(dcTracts, map, path);
 
@@ -85,14 +94,6 @@
 
     function setEnumerationUnits(dcTracts, map, path){
         console.log(dcTracts);
-        var tracts = map.selectAll(".tracts")
-            .data(dcTracts)
-            .enter()
-            .append("path")
-            .attr("class", function(d) {
-                return d.properties.NAMELSAD;
-            })
-            .attr("d", path);
         
     };
 
