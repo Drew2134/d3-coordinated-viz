@@ -67,10 +67,10 @@
 
     function setColorScale(data){
         var colorClasses = [
-            "#edf8fb",
-            "#b2e2e2",
-            "#66c2a4",
-            "#2ca25f",
+            "#edf8e9",
+            "#bae4b3",
+            "#74c476",
+            "#31a354",
             "#006d2c"
         ];
 
