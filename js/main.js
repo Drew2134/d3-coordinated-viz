@@ -42,7 +42,7 @@
         promises.push(d3.json("data/tracts_main.topojson")); //load foreground tracts shapes
         Promise.all(promises).then(callback);
 
-        function callback(data) {
+        function callback(data, csvData, usStates, dcTracts) {
 
             csvData = data[0];
             statesData = data[1];
@@ -86,6 +86,8 @@
                 };
             };
         };
+
+        return dcTracts;
     }
 
     function setInset() {
@@ -109,7 +111,7 @@
             .center([0, 38.90])
             .rotate([77.038, 0])
             .parallels([35, 38])
-            .scale(8000)
+            .scale(7500)
             .translate([width / 2, height / 2]);
         
         var path = d3.geoPath()
