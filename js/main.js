@@ -1,7 +1,7 @@
 (function(){
 
     var eduAttrs = ["total_population", "noHighSchool", "someHighSchool", "highSchoolGraduate", "someCollege", "associates", "bachelors", "graduate"];
-    var expressed = eduAttrs[7];
+    var expressed = eduAttrs[1];
     
     window.onload = (event) => {
         setMap();
@@ -83,6 +83,7 @@
             var val = parseFloat(data[i][expressed]);
             domainArray.push(val);
         };
+        console.log(domainArray)
         colorScale.domain(domainArray);
 
         return colorScale;
