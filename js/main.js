@@ -91,11 +91,11 @@
     function joinData(dcTracts, csvData){
         for (var i=0; i < csvData.length; i++){
             var csvRegion = csvData[i];
-            var csvKey = csvRegion.tract_number;
+            var csvKey = csvRegion.tract_name;
 
             for (var j=0; j < dcTracts.length; j++){
                 var tractsProps = dcTracts[j].properties;
-                var tractsKey = tractsProps.NAME;
+                var tractsKey = tractsProps.NAMELSAD;
 
                 if (tractsKey == csvKey){
                     eduAttrs.forEach(function(attr){
