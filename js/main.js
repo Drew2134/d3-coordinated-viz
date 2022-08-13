@@ -118,6 +118,7 @@
             })
             .attr("d", path)
             .style("fill", function(d){
+                console.log(d.properties[expressed]);
                 return colorScale(d.properties[expressed])
             });
     }
