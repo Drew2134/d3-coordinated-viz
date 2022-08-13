@@ -119,7 +119,7 @@
             })
             .attr("d", path)
             .style("fill", function(d){
-                return colorScale(d.properties["noHighSchool"])
+                return colorScale(d.properties[expressed])
             });
     }
 
