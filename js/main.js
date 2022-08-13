@@ -207,7 +207,7 @@
             .attr("x", function(d, i){
                 return i * (chartWidth / csvData.length);
             })
-            .attr("height", 460)
+            .attr("height", height)
             .attr("y", 0);
     }
 })();
