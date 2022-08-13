@@ -114,8 +114,8 @@
             .data(dcTracts)
             .enter()
             .append("path")
-            .attr("id", function(d) {
-                return d.properties.NAME;
+            .attr("class", function(d) {
+                return "tracts " + d.properties.NAME;
             })
             .attr("d", path)
             .style("fill", function(d){
