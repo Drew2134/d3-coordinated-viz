@@ -46,6 +46,13 @@ function setMap() {
         var usStates = topojson.feature(statesData, statesData.objects.states_final);
         var dcTracts = topojson.feature(tractsData, tractsData.objects.tracts_final).features;
 
+        var eduAttrs = ["total_population", "noHighSchool", "someHighSchool", "highSchoolGraduate", "someCollege", "associates", "bachelors", "graduate"];
+
+        for (var i=0; i < csvData.length; i++){
+            var csvRegion = csvData[i];
+            var csvKey = csvRegion.tract_name;
+        }
+
         var states = map.append("path")
             .datum(usStates)
             .attr("class", "states")
