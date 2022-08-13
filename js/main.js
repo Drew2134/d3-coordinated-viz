@@ -61,6 +61,10 @@
             dcTracts = joinData(tracts, csvData);
 
             setEnumerationUnits(dcTracts, map, path, colorScale);
+
+            setInset(statesData, tractsData);
+
+            setChart(csvData);
         }
     }
 
@@ -121,7 +125,7 @@
             });
     }
 
-    function setInset() {
+    function setInset(statesData, tractsData) {
         var width = 300,
             height = 300
             viewBox = "0 0 300 300";
@@ -148,38 +152,27 @@
         var path = d3.geoPath()
             .projection(prj)
 
-        var promises = [];
-        promises.push(d3.json("data/states_inset.topojson"));
-        promises.push(d3.json("data/tracts_inset.topojson"));
-        Promise.all(promises).then(callback);
+        var usStates = topojson.feature(statesData, statesData.objects.states);
+        var dcTracts = topojson.feature(tractsData, tractsData.objects.tracts).features;
 
-        function callback(data) {
+        var states = inset.append("path")
+            .datum(usStates)
+            .attr("class", "states")
+            .attr("d", path)
+            .style("fill", "#E6E6E6");
 
-            statesData = data[0];
-            tractsData = data[1];
-
-            var usStates = topojson.feature(statesData, statesData.objects.states);
-            var dcTracts = topojson.feature(tractsData, tractsData.objects.tracts).features;
-
-            var states = inset.append("path")
-                .datum(usStates)
-                .attr("class", "states")
-                .attr("d", path)
-                .style("fill", "#E6E6E6");
-
-            var tracts = inset.selectAll(".tracts")
-                .data(dcTracts)
-                .enter()
-                .append("path")
-                .attr("class", function(d) {
-                    return d.properties.NAME;
-                })
-                .attr("d", path)
-                .style("fill", "red"); 
-        }
+        var tracts = inset.selectAll(".tracts")
+            .data(dcTracts)
+            .enter()
+            .append("path")
+            .attr("class", function(d) {
+                return d.properties.NAME;
+            })
+            .attr("d", path)
+            .style("fill", "red"); 
     }
 
-    function setChart() {
+    function setChart(csvData) {
         var width = window.innerWidth * 0.48,
             height = window.innerHeight * 0.80,
             viewBox = "0 0 " + width + " " + height;
