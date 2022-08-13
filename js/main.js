@@ -89,10 +89,11 @@
             .enter()
             .append("path")
             .attr("class", function(d) {
-                return d.properties.NAME;
+                return d.properties.NAMELSAD;
             })
             .attr("d", path);
 
+        return tracts;
     };
 
     function setInset() {
