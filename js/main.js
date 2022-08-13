@@ -51,7 +51,7 @@
 
             var usStates = topojson.feature(statesData, statesData.objects.states_final);
             var tracts = topojson.feature(tractsData, tractsData.objects.tracts_final).features;
-            console.log(tracts)
+            
             var states = map.append("path")
                 .datum(usStates)
                 .attr("class", "states")
