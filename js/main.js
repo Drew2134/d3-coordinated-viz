@@ -84,8 +84,8 @@
         };
 
         var colorScale = d3.scaleQuantile()
-            .range(colorClasses)
-            .domain(domainArray);
+            .domain(domainArray)
+            .range(colorClasses);
 
         return colorScale;
     }
