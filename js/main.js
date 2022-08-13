@@ -1,6 +1,7 @@
 (function(){
 
     var eduAttrs = ["total_population", "noHighSchool", "someHighSchool", "highSchoolGraduate", "someCollege", "associates", "bachelors", "graduate"];
+    var pop = eduAttrs[0];
     var expressed = eduAttrs[1];
     
     window.onload = (event) => {
@@ -80,7 +81,7 @@
 
         var domainArray = [];
         for (var i=0; i < data.length; i++){
-            var val = parseFloat(data[i][expressed]);
+            var val = parseFloat(data[i][expressed] / data[i][pop]);
             domainArray.push(val);
         };
         console.log(domainArray)
