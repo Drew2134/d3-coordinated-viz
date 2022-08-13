@@ -79,8 +79,7 @@
 
         var domainArray = [];
         for (var i=0; i < data.length; i++){
-            console.log(data[i], data[i][expressed])
-            var val = parseFloat((data[i][expressed] / data[i][pop]) * 100);
+            var val = parseFloat(data[i][expressed]);
             domainArray.push(val);
         };
 
