@@ -75,8 +75,7 @@
         ];
 
         var colorScale = d3.scaleThreshold()
-            .domain(domainArray)
-            .range(colorClasses);
+            .domain(domainArray);
 
         var domainArray = [];
         for (var i=0; i < data.length; i++){
