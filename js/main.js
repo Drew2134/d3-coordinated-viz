@@ -105,7 +105,8 @@ function setInset() {
         var states = inset.append("path")
             .datum(usStates)
             .attr("class", "states")
-            .attr("d", path);
+            .attr("d", path)
+            .style("fill", "#E6E6E6");
 
         var tracts = inset.selectAll(".tracts")
             .data(dcTracts)
