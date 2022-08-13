@@ -64,7 +64,7 @@
 
             setInset(statesData, tractsData);
 
-            setChart(csvData);
+            setChart(usStates, tracts);
         }
     }
 
@@ -125,7 +125,7 @@
             });
     }
 
-    function setInset(statesData, tractsData) {
+    function setInset(usStates, dcTracts) {
         var width = 300,
             height = 300
             viewBox = "0 0 300 300";
@@ -151,9 +151,6 @@
         
         var path = d3.geoPath()
             .projection(prj)
-
-        var usStates = topojson.feature(statesData, statesData.objects.states);
-        var dcTracts = topojson.feature(tractsData, tractsData.objects.tracts).features;
 
         var states = inset.append("path")
             .datum(usStates)
