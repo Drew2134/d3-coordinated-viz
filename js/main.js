@@ -67,13 +67,13 @@
 
     function setColorScale(data){
         var colorClasses = [
-            "#569E0F",
-            "#4D8D0F",
-            "#457D0E",
-            "#3C6C0D",
-            "#345C0C",
-            "#2B4C0B",
-            "#223C09"
+            "#edf8fb",
+            "#ccece6",
+            "#99d8c9",
+            "#66c2a4",
+            "#41ae76",
+            "#238b45",
+            "#005824"
         ];
 
         var domainArray = [];
@@ -106,7 +106,6 @@
                 };
             };
         };
-        console.log(dcTracts)
         return dcTracts;
     }
 
