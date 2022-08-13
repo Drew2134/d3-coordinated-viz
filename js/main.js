@@ -83,7 +83,7 @@
             domainArray.push(val);
         };
 
-        var clusters = ss.ckmeans(domainArray, 5);
+        var clusters = ckmeans(domainArray, 5);
         domainArray = clusters.map(function(d){
             return d3.min(d);
         })
