@@ -68,12 +68,10 @@
     function setColorScale(data){
         var colorClasses = [
             "#edf8fb",
-            "#ccece6",
-            "#99d8c9",
+            "#b2e2e2",
             "#66c2a4",
-            "#41ae76",
-            "#238b45",
-            "#005824"
+            "#2ca25f",
+            "#006d2c"
         ];
 
         var colorScale = d3.scaleThreshold()
@@ -86,7 +84,7 @@
             domainArray.push(val);
         };
 
-        var clusters = ss.ckmeans(domainArray, 7);
+        var clusters = ss.ckmeans(domainArray, 5);
         domainArray = clusters.map(function(d){
             return d3.min(d);
         })
