@@ -94,6 +94,7 @@
             console.log(csvData[i]);
             var csvRegion = csvData[i];
             var csvKey = csvRegion.tract_name;
+            console.log(csvKey)
 
             for (var j=0; j < dcTracts.length; j++){
                 var tractsProps = dcTracts[j].properties;
