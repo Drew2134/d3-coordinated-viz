@@ -41,7 +41,7 @@
         promises.push(d3.json("data/tracts_inset.topojson")); //load inset tracts shapes
         Promise.all(promises).then(callback);
 
-        function callback(data, csvData, usStates, dcTracts, coreTracts) {
+        function callback(data, csvData, usStates, dcTracts, lowTracts) {
 
             csvData = data[0];
             statesData = data[1];
