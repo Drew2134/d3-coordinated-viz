@@ -84,6 +84,7 @@
     }
 
     function setEnumerationUnits(dcTracts, map, path){
+        console.log(dcTracts);
         var tracts = map.selectAll(".tracts")
             .data(dcTracts)
             .enter()
@@ -92,8 +93,7 @@
                 return d.properties.NAMELSAD;
             })
             .attr("d", path);
-
-        return tracts;
+        
     };
 
     function setInset() {
