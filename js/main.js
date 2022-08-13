@@ -50,7 +50,7 @@
 
             var usStates = topojson.feature(statesData, statesData.objects.states_final);
             var dcTracts = topojson.feature(tractsData, tractsData.objects.tracts_final).features;
-
+            console.log(dcTracts)
             dcTracts = joinData(dcTracts, csvData);
 
             setEnumerationUnits(dcTracts, map, path);
