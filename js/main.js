@@ -120,7 +120,7 @@
             })
             .attr("d", path)
             .style("fill", function(d){
-                console.log(colorScale(d.properties[expressed]))
+                console.log(d, d.properties, d.properties[expressed])
                 return colorScale(d.properties[expressed])
             });
     }
