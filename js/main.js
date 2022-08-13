@@ -75,7 +75,7 @@
             "#223C09"
         ];
 
-        var colorScale = d3.scaleQunatile()
+        var colorScale = d3.scaleQuantile()
             .range(colorClasses);
 
         var domainArray = [];
