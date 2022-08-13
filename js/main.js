@@ -2,7 +2,7 @@
 
     var eduAttrs = ["total_population", "noHighSchool", "someHighSchool", "highSchoolGraduate", "someCollege", "associates", "bachelors", "graduate"];
     var pop = eduAttrs[0];
-    var expressed = eduAttrs[1];
+    var expressed = eduAttrs[2];
     
     window.onload = (event) => {
         setMap();
