@@ -76,15 +76,24 @@
             "#005824"
         ];
 
+        var colorScale = d3.scaleThreshold()
+            .domain(domainArray)
+            .range(colorClasses);
+
         var domainArray = [];
         for (var i=0; i < data.length; i++){
             var val = parseFloat((data[i][expressed] / data[i][pop]) * 100);
             domainArray.push(val);
         };
 
-        var colorScale = d3.scaleQuantile()
-            .domain(domainArray)
-            .range(colorClasses);
+        var clusters = ss.ckmeans(domainArray, 7);
+        domainArray = clusters.map(function(d){
+            return d3.min(d);
+        })
+
+        domainArray.shift();
+        colorScale.domain(domainArray);
+
 
         return colorScale;
     }
