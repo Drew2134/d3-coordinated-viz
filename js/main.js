@@ -57,11 +57,11 @@
                 .attr("class", "states")
                 .attr("d", path);
 
-            //var colorScale = setColorScale(csvData);
+            var colorScale = setColorScale(csvData);
 
             dcTracts = joinData(tracts, csvData);
 
-            //setEnumerationUnits(dcTracts, map, path, colorScale);
+            setEnumerationUnits(dcTracts, map, path, colorScale);
         }
     }
 
@@ -99,7 +99,6 @@
                 var tractsKey = tractsProps.NAME;
 
                 if (tractsKey == csvKey){
-                    console.log(tractsKey, csvKey)
                     eduAttrs.forEach(function(attr){
                         var val = parseFloat(csvRegion[attr]);
                         tractsProps[attr] = val;
