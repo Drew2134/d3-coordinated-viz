@@ -90,8 +90,8 @@ function setInset() {
         .projection(prj)
 
     var promises = [];
-    promises.push(d3.json("data/states.topojson"));
-    promises.push(d3.json("data/tracts.topojson"));
+    promises.push(d3.json("data/states_inset.topojson"));
+    promises.push(d3.json("data/tracts_inset.topojson"));
     Promise.all(promises).then(callback);
 
     function callback(data) {
