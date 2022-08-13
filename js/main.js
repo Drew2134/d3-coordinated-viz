@@ -92,18 +92,19 @@
     function joinData(dcTracts, csvData){
         for (var i=0; i < csvData.length; i++){
             var csvRegion = csvData[i];
-            var csvKey = csvRegion.tract_name;
+            var csvKey = csvRegion.tract_number;
 
             for (var j=0; j < dcTracts.length; j++){
                 var tractsProps = dcTracts[j].properties;
+                console.log(tractsProps)
                 var tractsKey = tractsProps.NAMELSAD;
 
-                if (tractsKey = csvKey){
+                /*if (tractsKey = csvKey){
                     eduAttrs.forEach(function(attr){
                         var val = parseFloat(csvRegion[attr]);
                         tractsProps[attr] = val;
                     });
-                };
+                };*/
             };
         };
         return dcTracts;
