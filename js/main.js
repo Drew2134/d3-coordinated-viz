@@ -56,10 +56,36 @@
                 .attr("class", "states")
                 .attr("d", path);
 
+            var colorScale = setColorScale(csvData);
+
             dcTracts = joinData(dcTracts, csvData);
 
-            setEnumerationUnits(dcTracts, map, path);
+            setEnumerationUnits(dcTracts, map, path, colorScale);
         }
+    }
+
+    function setColorScale(data){
+        var colorClasses = [
+            "#569E0F",
+            "#4D8D0F",
+            "#457D0E",
+            "#3C6C0D",
+            "#345C0C",
+            "#2B4C0B",
+            "#223C09"
+        ];
+
+        var colorScale = d3.scaleQunatile()
+            .range(colorClasses);
+
+        var domainArray = [];
+        for (var i=0; i < data.length; i++){
+            var val = parseFloat(data[i][expressed]);
+            domainArray.push(val);
+        };
+        colorScale.domain(domainArray);
+
+        return colorScale;
     }
 
     function joinData(dcTracts, csvData){
@@ -83,7 +109,7 @@
         return dcTracts;
     }
 
-    function setEnumerationUnits(dcTracts, map, path){
+    function setEnumerationUnits(dcTracts, map, path, colorScale){
         var tracts = map.selectAll(".tracts")
             .data(dcTracts)
             .enter()
@@ -91,7 +117,10 @@
             .attr("class", function(d) {
                 return d.properties.NAME;
             })
-            .attr("d", path);
+            .attr("d", path)
+            .style("fill", function(d){
+                return colorScale(d.properties[expressed])
+            });
     }
 
     function setInset() {
