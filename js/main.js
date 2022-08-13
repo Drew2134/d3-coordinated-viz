@@ -106,7 +106,7 @@
                 };
             };
         };
-
+        console.log(dcTracts)
         return dcTracts;
     }
 
