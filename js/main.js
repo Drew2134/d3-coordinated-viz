@@ -50,7 +50,7 @@
             tractsData = data[2];
 
             var usStates = topojson.feature(statesData, statesData.objects.states_final);
-            var dcTracts = topojson.feature(tractsData, tractsData.objects.tracts_final).features;
+            var tracts = topojson.feature(tractsData, tractsData.objects.tracts_final).features;
 
             var states = map.append("path")
                 .datum(usStates)
@@ -59,7 +59,7 @@
 
             var colorScale = setColorScale(csvData);
 
-            dcTracts = joinData(dcTracts, csvData);
+            dcTracts = joinData(tracts, csvData);
 
             setEnumerationUnits(dcTracts, map, path, colorScale);
         }
