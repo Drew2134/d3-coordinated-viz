@@ -51,7 +51,19 @@ function setMap() {
         for (var i=0; i < csvData.length; i++){
             var csvRegion = csvData[i];
             var csvKey = csvRegion.tract_name;
-        }
+
+            for (var j=0; j < dcTracts.length; j++){
+                var tractsProps = dcTracts[j].properties;
+                var tractsKey = tractsProps.NAMELSAD;
+
+                if (tractsKey = csvKey){
+                    eduAttrs.forEach(function(attr){
+                        var val = parseFloat(csvRegion[attr]);
+                        tractsProps[attr] = val;
+                    });
+                };
+            };
+        };
 
         var states = map.append("path")
             .datum(usStates)
