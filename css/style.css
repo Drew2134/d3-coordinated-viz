@@ -13,10 +13,10 @@ html, body {
 }
 
 .insetDiv {
-    width: 200px;
-    height: 200px;
+    width: 300px;
+    height: 00px;
     position: relative;
-    bottom: -570px;
+    bottom: -500px;
     left: 20px;
 }
 
