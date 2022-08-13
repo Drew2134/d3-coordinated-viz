@@ -67,12 +67,15 @@
 
     function setColorScale(data){
         var colorClasses = [
-            "#edf8fb",
-            "#b2e2e2",
-            "#66c2a4",
-            "#2ca25f",
-            "#006d2c"
+            "#f0f9e8",
+            "#bae4bc",
+            "#7bccc4",
+            "#43a2ca",
+            "#0868ac"
         ];
+
+        var colorScale = d3.scaleQuantize()
+            .range(colorClasses);
 
         var domainArray = [];
         for (var i=0; i < data.length; i++){
@@ -80,9 +83,7 @@
             domainArray.push(val);
         };
 
-        var colorScale = d3.scaleQuantize()
-            .domain(domainArray)
-            .range(colorClasses);
+        colorScale.domain(domainArray);
 
         return colorScale;
     }
