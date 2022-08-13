@@ -48,11 +48,10 @@
             csvData = data[0];
             statesData = data[1];
             tractsData = data[2];
-            console.log(tractsData)
 
             var usStates = topojson.feature(statesData, statesData.objects.states_final);
             var tracts = topojson.feature(tractsData, tractsData.objects.tracts_final).features;
-
+            console.log(tracts)
             var states = map.append("path")
                 .datum(usStates)
                 .attr("class", "states")
@@ -98,7 +97,6 @@
             for (var j=0; j < dcTracts.length; j++){
                 var tractsProps = dcTracts[j].properties;
                 var tractsKey = tractsProps.NAMELSAD;
-                console.log(tractsKey)
 
                 if (tractsKey = csvKey){
                     eduAttrs.forEach(function(attr){
@@ -161,8 +159,6 @@
 
             statesData = data[0];
             tractsData = data[1];
-
-            console.log(tractsData)
 
             var usStates = topojson.feature(statesData, statesData.objects.states);
             var dcTracts = topojson.feature(tractsData, tractsData.objects.tracts).features;
