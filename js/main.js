@@ -76,16 +76,15 @@
             "#223C09"
         ];
 
-        var colorScale = d3.scaleQuantile()
-            .range(colorClasses);
-
         var domainArray = [];
         for (var i=0; i < data.length; i++){
             var val = parseFloat(data[i][expressed] / data[i][pop]);
             domainArray.push(val);
         };
-        console.log(colorScale.domain(domainArray))
-        colorScale.domain(domainArray);
+
+        var colorScale = d3.scaleQuantile()
+            .range(colorClasses)
+            .domain(domainArray);
 
         return colorScale;
     }
