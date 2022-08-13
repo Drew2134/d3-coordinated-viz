@@ -114,7 +114,8 @@ function setInset() {
             .attr("class", function(d) {
                 return d.properties.NAME;
             })
-            .attr("d", path);
+            .attr("d", path)
+            .style("fill", "red"); 
     }
 }
 
