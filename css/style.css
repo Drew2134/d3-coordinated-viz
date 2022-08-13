@@ -14,9 +14,9 @@ html, body {
 
 .insetDiv {
     width: 300px;
-    height: 00px;
+    height: 300px;
     position: relative;
-    bottom: -500px;
+    bottom: -450px;
     left: 20px;
 }
 
