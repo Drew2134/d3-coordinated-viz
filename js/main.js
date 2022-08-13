@@ -60,7 +60,7 @@
 
             setEnumerationUnits(dcTracts, map, path, colorScale);
 
-            setInset(statesData, tractsData);
+            setInset(usStates, tracts);
 
             setChart(usStates, tracts);
         }
