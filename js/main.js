@@ -48,6 +48,7 @@
             csvData = data[0];
             statesData = data[1];
             tractsData = data[2];
+            console.log(tractsData)
 
             var usStates = topojson.feature(statesData, statesData.objects.states_final);
             var tracts = topojson.feature(tractsData, tractsData.objects.tracts_final).features;
@@ -96,7 +97,6 @@
 
             for (var j=0; j < dcTracts.length; j++){
                 var tractsProps = dcTracts[j].properties;
-                console.log(tractsProps)
                 var tractsKey = tractsProps.NAMELSAD;
                 console.log(tractsKey)
 
