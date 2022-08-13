@@ -96,16 +96,15 @@
 
             for (var j=0; j < dcTracts.length; j++){
                 var tractsProps = dcTracts[j].properties;
-                console.log(tractsProps)
                 var tractsKey = tractsProps.NAME;
-                console.log(tractsKey)
 
-                /*if (tractsKey = csvKey){
+                if (tractsKey == csvKey){
+                    console.log(tractsKey, csvKey)
                     eduAttrs.forEach(function(attr){
                         var val = parseFloat(csvRegion[attr]);
                         tractsProps[attr] = val;
                     });
-                };*/
+                };
             };
         };
         return dcTracts;
