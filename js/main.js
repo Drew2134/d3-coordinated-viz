@@ -5,8 +5,6 @@
     
     window.onload = (event) => {
         setMap();
-        setInset();
-        setChart();
     };
 
     function setMap() {
@@ -193,9 +191,9 @@
             .attr("class", function(d){
                 return "bars " + d.NAMELSAD
             })
-            .attr("width", chartWidth / csvData.length - 1)
+            .attr("width", width / csvData.length - 1)
             .attr("x", function(d, i){
-                return i * (chartWidth / csvData.length);
+                return i * (width / csvData.length);
             })
             .attr("height", height)
             .attr("y", 0);
