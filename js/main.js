@@ -1,53 +1,75 @@
-window.onload = (event) => {
-    setMap();
-    setInset();
-    setChart();
-};
+(function(){
 
-function setMap() {
-    var width = window.innerWidth * 0.48,
-        height = window.innerHeight * 0.85,
-        viewBox = "0 0 " + width + " " + height;
+    var eduAttrs = ["total_population", "noHighSchool", "someHighSchool", "highSchoolGraduate", "someCollege", "associates", "bachelors", "graduate"];
+    var expressed = eduAttrs[0];
+    
+    window.onload = (event) => {
+        setMap();
+        setInset();
+        setChart();
+    };
 
-    var mapDiv = d3.select("body")
-        .append("div")
-        .attr("width", width)
-        .attr("height", height)
-        .classed("mapDiv", true)
+    function setMap() {
+        var width = window.innerWidth * 0.48,
+            height = window.innerHeight * 0.85,
+            viewBox = "0 0 " + width + " " + height;
 
-    var map = d3.select(".mapDiv")
-        .append("svg")
-        .attr("preserveAspectRatio", "xMinYMin meet")
-        .attr("viewBox", viewBox)
-        .classed("map", true);
+        var mapDiv = d3.select("body")
+            .append("div")
+            .attr("width", width)
+            .attr("height", height)
+            .classed("mapDiv", true)
 
-    var prj = d3.geoAlbers()
-        .center([0, 38.90])
-        .rotate([77.038, 0])
-        .parallels([35, 38])
-        .scale(235000)
-        .translate([width / 2, height / 2]);
+        var map = d3.select(".mapDiv")
+            .append("svg")
+            .attr("preserveAspectRatio", "xMinYMin meet")
+            .attr("viewBox", viewBox)
+            .classed("map", true);
 
-    var path = d3.geoPath()
-        .projection(prj);
+        var prj = d3.geoAlbers()
+            .center([0, 38.90])
+            .rotate([77.038, 0])
+            .parallels([35, 38])
+            .scale(235000)
+            .translate([width / 2, height / 2]);
 
-    var promises = [];
-    promises.push(d3.csv("data/education_attainment.csv")); //load education tabular data
-    promises.push(d3.json("data/states_main.topojson")); //load background states shapes
-    promises.push(d3.json("data/tracts_main.topojson")); //load foreground tracts shapes
-    Promise.all(promises).then(callback);
+        var path = d3.geoPath()
+            .projection(prj);
 
-    function callback(data) {
+        var promises = [];
+        promises.push(d3.csv("data/education_attainment.csv")); //load education tabular data
+        promises.push(d3.json("data/states_main.topojson")); //load background states shapes
+        promises.push(d3.json("data/tracts_main.topojson")); //load foreground tracts shapes
+        Promise.all(promises).then(callback);
 
-		csvData = data[0];
-		statesData = data[1];
-		tractsData = data[2];
+        function callback(data) {
 
-        var usStates = topojson.feature(statesData, statesData.objects.states_final);
-        var dcTracts = topojson.feature(tractsData, tractsData.objects.tracts_final).features;
+            csvData = data[0];
+            statesData = data[1];
+            tractsData = data[2];
 
-        var eduAttrs = ["total_population", "noHighSchool", "someHighSchool", "highSchoolGraduate", "someCollege", "associates", "bachelors", "graduate"];
+            var usStates = topojson.feature(statesData, statesData.objects.states_final);
+            var dcTracts = topojson.feature(tractsData, tractsData.objects.tracts_final).features;
 
+            dcTracts = joinData(dcTracts, csvData);
+
+            var states = map.append("path")
+                .datum(usStates)
+                .attr("class", "states")
+                .attr("d", path);
+
+            var tracts = map.selectAll(".tracts")
+                .data(dcTracts)
+                .enter()
+                .append("path")
+                .attr("class", function(d) {
+                    return d.properties.NAME;
+                })
+                .attr("d", path);
+        }
+    }
+
+    function joinData(dcTracts, csvData){
         for (var i=0; i < csvData.length; i++){
             var csvRegion = csvData[i];
             var csvKey = csvRegion.tract_name;
@@ -64,95 +86,81 @@ function setMap() {
                 };
             };
         };
-
-        var states = map.append("path")
-            .datum(usStates)
-            .attr("class", "states")
-            .attr("d", path);
-
-        var tracts = map.selectAll(".tracts")
-            .data(dcTracts)
-            .enter()
-            .append("path")
-            .attr("class", function(d) {
-                return d.properties.NAME;
-            })
-            .attr("d", path);
     }
-}
 
-function setInset() {
-    var width = 300,
-        height = 300
-        viewBox = "0 0 300 300";
-    
-    var insetDiv = d3.select(".mapDiv")
-        .append("div")
-        .attr("width", width)
-        .attr("height", height)
-        .classed("insetDiv", true);
-    
-    var inset = d3.select(".insetDiv")
-        .append("svg")
-        .attr("preserveAspectRatio", "xMinYMin meet")
-        .attr("viewBox", viewBox)
-        .classed("inset", true)
-    
-    var prj = d3.geoAlbers()
-        .center([0, 38.90])
-        .rotate([77.038, 0])
-        .parallels([35, 38])
-        .scale(5000)
-        .translate([width / 2, height / 2]);
-    
-    var path = d3.geoPath()
-        .projection(prj)
+    function setInset() {
+        var width = 300,
+            height = 300
+            viewBox = "0 0 300 300";
+        
+        var insetDiv = d3.select(".mapDiv")
+            .append("div")
+            .attr("width", width)
+            .attr("height", height)
+            .classed("insetDiv", true);
+        
+        var inset = d3.select(".insetDiv")
+            .append("svg")
+            .attr("preserveAspectRatio", "xMinYMin meet")
+            .attr("viewBox", viewBox)
+            .classed("inset", true)
+        
+        var prj = d3.geoAlbers()
+            .center([0, 38.90])
+            .rotate([77.038, 0])
+            .parallels([35, 38])
+            .scale(6000)
+            .translate([width / 2, height / 2]);
+        
+        var path = d3.geoPath()
+            .projection(prj)
 
-    var promises = [];
-    promises.push(d3.json("data/states_inset.topojson"));
-    promises.push(d3.json("data/tracts_inset.topojson"));
-    Promise.all(promises).then(callback);
+        var promises = [];
+        promises.push(d3.json("data/states_inset.topojson"));
+        promises.push(d3.json("data/tracts_inset.topojson"));
+        Promise.all(promises).then(callback);
 
-    function callback(data) {
+        function callback(data) {
 
-		statesData = data[0];
-		tractsData = data[1];
+            statesData = data[0];
+            tractsData = data[1];
 
-        var usStates = topojson.feature(statesData, statesData.objects.states);
-        var dcTracts = topojson.feature(tractsData, tractsData.objects.tracts).features;
+            var usStates = topojson.feature(statesData, statesData.objects.states);
+            var dcTracts = topojson.feature(tractsData, tractsData.objects.tracts).features;
 
-        var states = inset.append("path")
-            .datum(usStates)
-            .attr("class", "states")
-            .attr("d", path)
-            .style("fill", "#E6E6E6");
+            var states = inset.append("path")
+                .datum(usStates)
+                .attr("class", "states")
+                .attr("d", path)
+                .style("fill", "#E6E6E6");
 
-        var tracts = inset.selectAll(".tracts")
-            .data(dcTracts)
-            .enter()
-            .append("path")
-            .attr("class", function(d) {
-                return d.properties.NAME;
-            })
-            .attr("d", path)
-            .style("fill", "red"); 
+            var tracts = inset.selectAll(".tracts")
+                .data(dcTracts)
+                .enter()
+                .append("path")
+                .attr("class", function(d) {
+                    return d.properties.NAME;
+                })
+                .attr("d", path)
+                .style("fill", "red"); 
+        }
     }
-}
 
-function setChart() {
-    var width = window.innerWidth * 0.48,
-        height = window.innerHeight * 0.85,
-        viewBox = "0 0 " + width + " " + height;
+    function setChart() {
+        var width = window.innerWidth * 0.48,
+            height = window.innerHeight * 0.85,
+            viewBox = "0 0 " + width + " " + height;
 
-    var chartDiv = d3.select("body")
-        .append("div")
-        .attr("width", width)
-        .attr("height", height)
-        .classed("chartDiv", true)
+        var chartDiv = d3.select("body")
+            .append("div")
+            .attr("width", width)
+            .attr("height", height)
+            .classed("chartDiv", true)
 
-    var chart = d3.select(".chartDiv")
-        .append("svg")
-        .attr("preserveAspectRatio", "xMinYMin meet")
-        .attr("viewBox", viewBox)
-        .classed("chart", true);
-}
+        var chart = d3.select(".chartDiv")
+            .append("svg")
+            .attr("preserveAspectRatio", "xMinYMin meet")
+            .attr("viewBox", viewBox)
+            .classed("chart", true);
+    }
+})();
