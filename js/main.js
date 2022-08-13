@@ -57,11 +57,11 @@
                 .attr("class", "states")
                 .attr("d", path);
 
-            var colorScale = setColorScale(csvData);
+            //var colorScale = setColorScale(csvData);
 
-            dcTracts = joinData(tracts, csvData);
+            //dcTracts = joinData(tracts, csvData);
 
-            setEnumerationUnits(dcTracts, map, path, colorScale);
+            //setEnumerationUnits(dcTracts, map, path, colorScale);
         }
     }
 
