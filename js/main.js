@@ -193,10 +193,10 @@
         }
 
         var chart = d3.select(".chartDiv")
-            .BubbleChart(data, {
+            .append(BubbleChart(data, {
                 label: d => d.name,
                 value: d => d.value
-            })
+            }))
             /*
             .attr("preserveAspectRatio", "xMinYMin meet")
             .attr("viewBox", viewBox)
