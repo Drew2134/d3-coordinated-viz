@@ -198,14 +198,15 @@
                     });
 
         console.log(bubble)
+        $(".chartDiv").append(bubble)
 
-        var chart = d3.select(".chartDiv")
+
+        /*var chart = d3.select(".chartDiv")
             .append("svg")
-            /*
+            
             .attr("preserveAspectRatio", "xMinYMin meet")
             .attr("viewBox", viewBox)
             .classed("chart", true);*/
-
     }
 
     // Copyright 2021 Observable, Inc.
