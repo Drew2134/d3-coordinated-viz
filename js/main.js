@@ -68,7 +68,7 @@
 
             setInset(lowStates, lowTracts);
 
-            setChart(usStates, tracts);
+            setChart(csvData);
         }
     }
 
