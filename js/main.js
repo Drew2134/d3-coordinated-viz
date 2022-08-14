@@ -200,7 +200,9 @@
 
         BubbleChart(data, {
             label: d => d.name,
-            value: d => d.value
+            value: d => d.value,
+            width: 300,
+            height: 300
         });
     }
 
