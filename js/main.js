@@ -191,7 +191,9 @@
             .attr("viewBox", viewBox)
             .classed("chart", true);
 
-        BubbleChart(csvData);
+        BubbleChart(csvData, {
+            label: d => d.properties[expressed]
+        });
     }
 
     // Copyright 2021 Observable, Inc.
