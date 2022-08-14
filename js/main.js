@@ -191,9 +191,14 @@
             .attr("viewBox", viewBox)
             .classed("chart", true);
 
-        BubbleChart(csvData, {
+        data = [];
+        for(var i = 0; i < csvData.length; i++){
+            console.log(csvData[i])
+        }
+
+        /*BubbleChart(csvData, {
             label: d => d.properties[expressed]
-        });
+        });*/
     }
 
     // Copyright 2021 Observable, Inc.
@@ -202,7 +207,7 @@
     function BubbleChart(data, {
         name = ([x]) => x, // alias for label
         label = name, // given d in data, returns text to display on the bubble
-        value = ([y]) => y, // given d in data, returns a quantitative size
+        value = ([, y]) => y, // given d in data, returns a quantitative size
         group, // given d in data, returns a categorical value for color
         title, // given d in data, returns text to show on hover
         link, // given a node d, its link (if any)
