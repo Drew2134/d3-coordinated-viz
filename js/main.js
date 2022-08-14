@@ -194,7 +194,8 @@
 
         var bubble = BubbleChart(data, {
                         label: d => d.name,
-                        value: d => d.value
+                        value: d => d.value,
+                        width: 800
                     });
 
         console.log(bubble)
