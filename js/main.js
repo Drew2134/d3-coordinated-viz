@@ -199,7 +199,7 @@
         }
 
         BubbleChart(data, {
-            label: d => d.properties[expressed]
+            label: d => d.name
         });
     }
 
