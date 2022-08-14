@@ -206,7 +206,6 @@
             .attr("viewBox", viewBox)
             .classed("chart", true);*/
 
-        X
     }
 
     // Copyright 2021 Observable, Inc.
