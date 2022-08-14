@@ -187,13 +187,13 @@
         data = [];
         for(var i = 0; i < csvData.length; i++){
             datum = {};
-            datum.name = csvData[i].tract_name;
+            datum.name = csvData[i].tract_number;
             datum.value = csvData[i][expressed];
             data.push(datum);
         }
 
         var bubble = BubbleChart(data, {
-                        label: d => d.name,
+                        label: d => "CT " + d.name,
                         value: d => d.value,
                         width: 800
                     });
