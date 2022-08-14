@@ -193,7 +193,6 @@
         }
 
         var bubble = BubbleChart(data, {
-                        label: d => "CT " + d.name,
                         value: d => d.value,
                         width: 800
                     });
