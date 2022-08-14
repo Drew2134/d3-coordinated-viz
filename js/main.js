@@ -194,7 +194,7 @@
         for(var i = 0; i < csvData.length; i++){
             datum = {};
             datum.name = csvData[i].tract_name;
-            console.log(csvData[i].expressed);
+            console.log(csvData[i]);
             console.log(datum)
         }
 
