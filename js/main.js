@@ -193,17 +193,15 @@
         }
 
         var chart = d3.select(".chartDiv")
-            .append(
-                BubbleChart(data, {
-                    label: d => d.name,
-                    value: d => d.value
-                })
-            )
+            .append("svg")
             .attr("preserveAspectRatio", "xMinYMin meet")
             .attr("viewBox", viewBox)
             .classed("chart", true);
 
-        
+        BubbleChart(data, {
+            label: d => d.name,
+            value: d => d.value
+        });
     }
 
     // Copyright 2021 Observable, Inc.
