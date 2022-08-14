@@ -184,6 +184,12 @@
             .attr("height", height)
             .classed("chartDiv", true)
 
+        var chart = d3.select(".chartDiv")
+            .append("svg")
+            .attr("preserveAspectRatio", "xMinYMin meet")
+            .attr("viewBox", viewBox)
+            .classed("chart", true);
+
         data = [];
         for(var i = 0; i < csvData.length; i++){
             datum = {};
@@ -192,11 +198,9 @@
             data.push(datum);
         }
 
-        var chart = BubbleChart(data, {
+        BubbleChart(data, {
             label: d => d.name,
-            value: d => d.value,
-            width: 300,
-            height: 300
+            value: d => d.value
         });
     }
 
