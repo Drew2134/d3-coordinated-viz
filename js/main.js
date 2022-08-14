@@ -199,7 +199,8 @@
         }
 
         BubbleChart(data, {
-            label: d => d.name
+            label: d => d.name,
+            value: d => d.value
         });
     }
 
