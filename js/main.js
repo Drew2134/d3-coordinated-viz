@@ -192,11 +192,13 @@
             data.push(datum);
         }
 
+        var bubble = BubbleChart(data, {
+                        label: d => d.name,
+                        value: d => d.value
+                    });
+
         var chart = d3.select(".chartDiv")
-            .append(BubbleChart(data, {
-                label: d => d.name,
-                value: d => d.value
-            }))
+            .append(bubble)
             /*
             .attr("preserveAspectRatio", "xMinYMin meet")
             .attr("viewBox", viewBox)
