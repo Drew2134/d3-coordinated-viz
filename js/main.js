@@ -184,12 +184,6 @@
             .attr("height", height)
             .classed("chartDiv", true)
 
-        var chart = d3.select(".chartDiv")
-            .append("svg")
-            .attr("preserveAspectRatio", "xMinYMin meet")
-            .attr("viewBox", viewBox)
-            .classed("chart", true);
-
         data = [];
         for(var i = 0; i < csvData.length; i++){
             datum = {};
@@ -198,10 +192,18 @@
             data.push(datum);
         }
 
-        BubbleChart(data, {
-            label: d => d.name,
-            value: d => d.value
-        });
+        var chart = d3.select(".chartDiv")
+            .append(
+                BubbleChart(data, {
+                    label: d => d.name,
+                    value: d => d.value
+                })
+            )
+            .attr("preserveAspectRatio", "xMinYMin meet")
+            .attr("viewBox", viewBox)
+            .classed("chart", true);
+
+        
     }
 
     // Copyright 2021 Observable, Inc.
