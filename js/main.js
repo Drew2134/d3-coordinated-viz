@@ -192,7 +192,9 @@
 
         data = [];
         for(var i = 0; i < csvData.length; i++){
-            console.log(csvData[i].tract_name)
+            datum = {};
+            datum.name = csvData[i].tract_name;
+            console.log(datum)
         }
 
         /*BubbleChart(csvData, {
