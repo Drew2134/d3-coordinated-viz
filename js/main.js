@@ -174,7 +174,6 @@
     }
 
     function setChart(csvData) {
-        console.log(csvData);
         var width = window.innerWidth * 0.48,
             height = window.innerHeight * 0.80,
             viewBox = "0 0 " + width + " " + height;
@@ -193,7 +192,7 @@
 
         data = [];
         for(var i = 0; i < csvData.length; i++){
-            console.log(csvData[i])
+            console.log(csvData[i].tract_name)
         }
 
         /*BubbleChart(csvData, {
