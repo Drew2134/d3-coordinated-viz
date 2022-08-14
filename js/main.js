@@ -197,8 +197,10 @@
                         value: d => d.value
                     });
 
+        console.log(bubble)
+
         var chart = d3.select(".chartDiv")
-            .append(bubble)
+            .append("svg")
             /*
             .attr("preserveAspectRatio", "xMinYMin meet")
             .attr("viewBox", viewBox)
