@@ -194,13 +194,13 @@
         for(var i = 0; i < csvData.length; i++){
             datum = {};
             datum.name = csvData[i].tract_name;
-            console.log(csvData[i][expressed]);
-            console.log(datum)
+            datum.value = csvData[i][expressed];
+            data.push(datum);
         }
 
-        /*BubbleChart(csvData, {
+        BubbleChart(data, {
             label: d => d.properties[expressed]
-        });*/
+        });
     }
 
     // Copyright 2021 Observable, Inc.
