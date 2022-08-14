@@ -184,13 +184,6 @@
             .attr("height", height)
             .classed("chartDiv", true)
 
-        var chart = BubbleChart(data, {
-            label: d => d.name,
-            value: d => d.value,
-            width: 300,
-            height: 300
-        });
-
         data = [];
         for(var i = 0; i < csvData.length; i++){
             datum = {};
@@ -199,7 +192,7 @@
             data.push(datum);
         }
 
-        BubbleChart(data, {
+        var chart = BubbleChart(data, {
             label: d => d.name,
             value: d => d.value,
             width: 300,
