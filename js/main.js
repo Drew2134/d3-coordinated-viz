@@ -191,19 +191,9 @@
             .attr("viewBox", viewBox)
             .classed("chart", true);
 
-        var bars = chart.selectAll(".bars")
-            .data(csvData)
+        var bubbles = chart.selectAll(".bubbles")
+            .append("svg")
             .enter()
-            .append("rect")
-            .attr("class", function(d){
-                return "bars " + d.NAMELSAD
-            })
-            .attr("width", width / csvData.length - 1)
-            .attr("x", function(d, i){
-                return i * (width / csvData.length);
-            })
-            .attr("height", 460)
-            .attr("y", 0);
     }
 
     // Copyright 2021 Observable, Inc.
