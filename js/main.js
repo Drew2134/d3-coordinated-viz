@@ -191,9 +191,7 @@
             .attr("viewBox", viewBox)
             .classed("chart", true);
 
-        var bubbles = chart.selectAll(".bubbles")
-            .append("svg")
-            .enter()
+        BubbleChart(csvData);
     }
 
     // Copyright 2021 Observable, Inc.
