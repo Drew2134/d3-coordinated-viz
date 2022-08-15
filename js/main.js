@@ -130,7 +130,8 @@
                 return colorScale(d.properties[expressed])
             })
             .on("mouseover", function(d){
-                highlight()
+                console.log(d, d.properties)
+                highlight(d)
             });
     }
 
@@ -204,7 +205,6 @@
                         fill: d => colorScale(d.value),
                         width: 800
                     });
-        bubble.on("mouseover", highlight)
         $(".chartDiv").append(bubble);
     }
 
@@ -245,8 +245,8 @@
             });
     }
 
-    function highlight(){
-        var selected = d3.selectAll(".")
+    function highlight(d){
+        var selected = d3.selectAll("." + d)
             .style("stroke", "cyan")
             .styel("stroke-width", "2");
     }
