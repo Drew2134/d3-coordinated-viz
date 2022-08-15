@@ -118,7 +118,6 @@
     }
 
     function setEnumerationUnits(dcTracts, map, path, colorScale){
-        console.log(dcTracts.properties)
         var tracts = map.selectAll(".tracts")
             .data(dcTracts)
             .enter()
@@ -131,7 +130,8 @@
                 return colorScale(d.properties[expressed])
             })
             .on("mouseover", function(d){
-                highlight(d.properties)
+                console.log(d.properties)
+                //highlight(d.properties)
             });
     }
 
