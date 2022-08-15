@@ -275,11 +275,13 @@
 
     function changeAttribute(attribute, csvData){
         expressed = attribute;
+        console.log(expressed)
 
         var colorScale = setColorScale(csvData);
 
         var tracts = d3.selectAll(".tracts")
             .style("fill", function(d){
+                console.log(expressed)
                 return colorScale(d.properties[expressed])
             });
 
@@ -413,8 +415,6 @@
             .attr("xlink:href", link == null ? null : (d, i) => link(D[d.data], i, data))
             .attr("target", link == null ? null : linkTarget)
             .attr("transform", d => `translate(${d.x},${d.y})`);
-
-        console.log(data, D)
     
         leaf.append("circle")
             .attr("stroke", stroke)
