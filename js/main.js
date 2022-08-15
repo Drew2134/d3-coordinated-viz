@@ -135,7 +135,7 @@
     }
 
     function highlight(props){
-        var selected = d3.select(".tracts " + props.NAME)
+        var selected = d3.select(".tracts " + props.NAME.toStrin())
             .style("stroke", "cyan")
             .style("stroke-width", "2");
     }
