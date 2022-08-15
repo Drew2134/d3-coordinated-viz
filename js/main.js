@@ -288,8 +288,8 @@
         var infolabel = d3.select("body")
             .append("div")
             .attr("class", "infolabel")
-            .attr("id", props.adm1_code + "_label")
-            .html(labelAttribute);
+            .attr("id", props.NAMELSAD + "_label")
+            .html(labelAttr);
     
         var regionName = infolabel.append("div")
             .attr("class", "labelname")
