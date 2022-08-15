@@ -136,7 +136,7 @@
             .on("mouseout", (d) => {
                 dehighlight(d.fromElement.__data__.properties)
             })
-            .on("mousemove", moveLabel);
+            //.on("mousemove", moveLabel);
         
         var desc = tracts.append("desc")
             .text('{"stroke": "#000", "stroke-width": "0.5px"}');
