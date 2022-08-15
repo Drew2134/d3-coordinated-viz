@@ -205,6 +205,7 @@
     }
 
     function createDropdown(csvData){
+        console.log(csvData);
         var dropdown = d3.select("body")
             .append("select")
             .attr("class", "dropdown")
@@ -226,6 +227,7 @@
     }
 
     function changeAttribute(attribute, csvData){
+        console.log(csvData)
         expressed = attribute;
 
         var colorScale = setColorScale(csvData);
