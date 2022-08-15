@@ -235,7 +235,7 @@
                 return colorScale(d.properties[expressed])
             });
 
-        d3.select(".bubbleChart").remove();
+        d3.select(".chartDiv").remove();
         setChart(csvData, colorScale);
     }
 
