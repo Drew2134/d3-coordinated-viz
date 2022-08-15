@@ -196,7 +196,13 @@
                         name: d => "",
                         title: d => d.name,
                         value: d => d.value,
-                        group: colorScale,
+                        colors = [
+                            "#edf8e9",
+                            "#bae4b3",
+                            "#74c476",
+                            "#31a354",
+                            "#006d2c"
+                        ],
                         width: 800
                     });
 
