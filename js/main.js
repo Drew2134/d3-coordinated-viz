@@ -134,7 +134,7 @@
                 highlight(d.target.__data__.properties);
             })
             .on("mouseout", (d) => {
-                dehighlight(d.target.__data__.properties)
+                dehighlight(d.properties)
             });
         
         var desc = tracts.append("desc")
