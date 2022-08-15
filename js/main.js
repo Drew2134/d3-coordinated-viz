@@ -191,7 +191,7 @@
             datum.value = csvData[i][expressed];
             data.push(datum);
         }
-        console.log(colorScale, colorClasses);
+        console.log(colorScale);
         var bubble = BubbleChart(data, {
                         name: d => "",
                         title: d => d.name,
