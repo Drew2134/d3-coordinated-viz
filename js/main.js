@@ -263,7 +263,7 @@
         groups, // array of group names (the domain of the color scale)
         colors = d3.schemeTableau10, // an array of colors (for groups)
         fill = "#ccc", // a static fill color, if no group channel is specified
-        fillOpacity = 0.7, // the fill opacity of the bubbles
+        fillOpacity = 1, // the fill opacity of the bubbles
         stroke, // a static stroke around the bubbles
         strokeWidth, // the stroke width around the bubbles, if any
         strokeOpacity, // the stroke opacity around the bubbles, if any
