@@ -275,13 +275,11 @@
 
     function changeAttribute(attribute, csvData){
         expressed = attribute;
-        console.log(expressed)
 
         var colorScale = setColorScale(csvData);
 
-        var tracts = d3.selectAll(".path")
+        var tracts = d3.selectAll("path")
             .style("fill", function(d){
-                console.log(expressed)
                 return colorScale(d.properties[expressed])
             });
 
