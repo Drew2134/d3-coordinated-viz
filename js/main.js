@@ -136,7 +136,7 @@
     }
 
     function highlight(props){
-        console.log(props);
+        console.log(props.properties, props.class);
     }
 
     function setInset(usStates, dcTracts) {
