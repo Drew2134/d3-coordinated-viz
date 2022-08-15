@@ -133,6 +133,9 @@
             .on("mouseover", (d) => {
                 highlight(d.target.__data__.properties);
             });
+        
+        var desc = tracts.append("desc")
+            .text('{"stroke": "#000", "stroke-width": "0px"}');
     }
 
     function setInset(usStates, dcTracts) {
