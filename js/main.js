@@ -132,10 +132,13 @@
             })
             .on("mouseover", (d) => {
                 highlight(d.target.__data__.properties);
+            })
+            .on("mouseout", (d) => {
+                dehighlight(d.target.__data__.properties)
             });
         
         var desc = tracts.append("desc")
-            .text('{"stroke": "#000", "stroke-width": "0px"}');
+            .text('{"stroke": "#000", "stroke-width": "0.5px"}');
     }
 
     function setInset(usStates, dcTracts) {
@@ -269,8 +272,12 @@
             .style("stroke-width", "2.5");
     }
 
-    function dehighlight(){
-        console.log("dehighlight")
+    function dehighlight(props){
+        var className = ".tracts_" + props.NAME.replace(".", "-")
+        var selected = d3.selectAll(className)
+            .style("stroke", () => {
+                return "pink"
+            })
     }
 
     // Copyright 2021 Observable, Inc.
@@ -349,7 +356,7 @@
             .attr("fill", G ? d => color(G[d.data]) : fill == null ? "none" : fill)
             .attr("fill-opacity", fillOpacity)
             .attr("r", d => d.r)
-            .attr("class", data.name);
+            //.attr("class", data.name);
     
         if (T) leaf.append("title")
             .text(d => T[d.data]);
