@@ -130,9 +130,7 @@
                 return colorScale(d.properties[expressed])
             })
             .on("mouseover", function(d){
-                console.log(d.properties)
-                console.log(d.fromElement.__data__.properties)
-                //highlight(d.properties)
+                highlight(d.fromElement.__data__.properties)
             });
     }
 
@@ -201,7 +199,7 @@
         
         var bubble = BubbleChart(data, {
                         name: d => "",
-                        title: d => "Census Tract: " + d.name + "\nCount: " + d.value,
+                        title: d => "Census Tract " + d.name + "\nCount: " + d.value,
                         value: d => d.value,
                         fill: d => colorScale(d.value),
                         width: 800
