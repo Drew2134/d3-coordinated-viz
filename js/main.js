@@ -69,6 +69,8 @@
             setInset(lowStates, lowTracts);
 
             setChart(csvData, colorScale);
+
+            createDropdown();
         }
     }
 
@@ -174,7 +176,6 @@
     }
 
     function setChart(csvData, colorScale) {
-        console.log(colorScale(10));
         var width = window.innerWidth * 0.48,
             height = window.innerHeight * 0.80,
             viewBox = "0 0 " + width + " " + height;
@@ -183,7 +184,7 @@
             .append("div")
             .attr("width", width)
             .attr("height", height)
-            .classed("chartDiv", true)
+            .classed("chartDiv", true);
 
         data = [];
         for(var i = 0; i < csvData.length; i++){
@@ -200,17 +201,25 @@
                         fill: d => colorScale(d.value),
                         width: 800
                     });
+        $(".chartDiv").append(bubble);
+    }
 
-        console.log(bubble)
-        $(".chartDiv").append(bubble)
-
-
-        /*var chart = d3.select(".chartDiv")
-            .append("svg")
-            
-            .attr("preserveAspectRatio", "xMinYMin meet")
-            .attr("viewBox", viewBox)
-            .classed("chart", true);*/
+    function createDropdown(){
+        var dropdown = d3.select("body")
+            .append("select")
+            .attr("class", "dropdown");
+        
+        var titleOption = dropdown.append("option")
+            .attr("class", "titleOption")
+            .attr("disabled", "true")
+            .text("Select Education Level");
+        
+        var attrOptions = dropdown.selectAll("attrOptions")
+            .data(eduAttrs)
+            .enter()
+            .append("option")
+            .attr("value", function(d){ return d })
+            .text(function(d){ return d });
     }
 
     // Copyright 2021 Observable, Inc.
