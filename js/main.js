@@ -272,8 +272,7 @@
             .style("stroke", "red")
             .style("stroke-width", "2.5");
         
-        console.log(props)
-        //setLabel(props);
+        setLabel(props);
     }
 
     function dehighlight(props){
