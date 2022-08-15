@@ -135,13 +135,6 @@
             });
     }
 
-    function highlight(props){
-        var className = ".tracts_" + props.NAME.replace(".", "-")
-        var selected = d3.selectAll(className)
-            .style("stroke", "cyan")
-            .style("stroke-width", "2.5");
-    }
-
     function setInset(usStates, dcTracts) {
         var width = 300,
             height = 300
@@ -266,6 +259,13 @@
         setChart(csvData, colorScale);
     }
 
+    function highlight(props){
+        var className = ".tracts_" + props.NAME.replace(".", "-")
+        var selected = d3.selectAll(className)
+            .style("stroke", "cyan")
+            .style("stroke-width", "2.5");
+    }
+
     // Copyright 2021 Observable, Inc.
     // Released under the ISC license.
     // https://observablehq.com/@d3/bubble-chart
@@ -341,7 +341,8 @@
             .attr("stroke-opacity", strokeOpacity)
             .attr("fill", G ? d => color(G[d.data]) : fill == null ? "none" : fill)
             .attr("fill-opacity", fillOpacity)
-            .attr("r", d => d.r);
+            .attr("r", d => d.r)
+            .attr("class", title);
     
         if (T) leaf.append("title")
             .text(d => T[d.data]);
