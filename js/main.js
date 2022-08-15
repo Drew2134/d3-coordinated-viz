@@ -197,7 +197,7 @@
                         name: d => "",
                         title: d => "Census Tract: " + d.name + "\nCount: " + d.value,
                         value: d => d.value,
-                        groups: d => colorScale(d.properties[expressed]),
+                        groups: d => colorScale(d.value),
                         width: 800
                     });
 
