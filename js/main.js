@@ -138,7 +138,7 @@
         var className = ".tracts_" + props.NAME.toString()
         var selected = d3.select(className)
             .style("stroke", "cyan")
-            .style("stroke-width", "2");
+            .style("stroke-width", "2.5");
     }
 
     function setInset(usStates, dcTracts) {
