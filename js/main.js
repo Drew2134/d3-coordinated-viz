@@ -312,7 +312,7 @@
     
         var regionName = infolabel.append("div")
             .attr("class", "labelname")
-            .html(props.NAME);
+            .html("Census Tract: " + props.NAME);
     }
 
     // Copyright 2021 Observable, Inc.
