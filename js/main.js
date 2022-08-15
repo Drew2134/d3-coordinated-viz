@@ -130,13 +130,14 @@
                 return colorScale(d.properties[expressed])
             })
             .on("mouseover", (d) => {
-                console.log("over", d)
-                highlight(d.target);
+                highlight(d.target.__data__.properties);
             });
     }
 
     function highlight(props){
-        console.log(props.__data__.properties);
+        var selected = d3.selectAll(".tracts")
+            .style("stroke", "cyan")
+            .style("stroke-width", "2");
     }
 
     function setInset(usStates, dcTracts) {
