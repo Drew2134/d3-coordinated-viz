@@ -193,6 +193,7 @@
         }
 
         var bubble = BubbleChart(data, {
+                        name: d => d.name,
                         title: d => d.name,
                         value: d => d.value,
                         width: 800
