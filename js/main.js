@@ -201,7 +201,7 @@
                         fill: d => colorScale(d.value),
                         width: 800
                     });
-        
+        bubble.attr("class", "bubbleChart");
         $(".chartDiv").append(bubble);
     }
 
@@ -236,6 +236,7 @@
                 return colorScale(d.properties[expressed])
             });
 
+        d3.select(".bubbleChart").remove();
         setChart(csvData, colorScale);
     }
 
