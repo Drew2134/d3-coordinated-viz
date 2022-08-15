@@ -280,6 +280,7 @@
 
         var tracts = d3.selectAll(".tracts")
             .style("fill", function(d){
+                console.log("SELECTED")
                 return colorScale(d.properties[expressed])
             });
 
