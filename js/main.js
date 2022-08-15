@@ -302,7 +302,7 @@
             label = "Graduate Degree";
         }
 
-        var labelAttr = "<h1>" + label + "</h1><b>" + expressed + "</b>"
+        var labelAttr = "<h1>" + label + "</h1><h2>" + props[expressed] + "</h2>"
 
         var infolabel = d3.select("body")
             .append("div")
