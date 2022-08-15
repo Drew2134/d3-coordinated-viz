@@ -209,7 +209,7 @@
             .append("select")
             .attr("class", "dropdown")
             .on("change", function(){
-                changeAttribute(this,value, csvData)
+                changeAttribute(this.value, csvData)
             });
         
         var titleOption = dropdown.append("option")
