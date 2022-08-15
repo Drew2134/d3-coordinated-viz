@@ -245,7 +245,7 @@
     }
 
     function highlight(props){
-        var selected = map.selectAll(".tracts" + props.NAME)
+        var selected = map.selectAll(".tracts " + props.NAME)
             .style("stroke", "cyan")
             .styel("stroke-width", "2");
     }
