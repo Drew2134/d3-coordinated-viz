@@ -280,10 +280,12 @@
         var selected = d3.selectAll(className)
             .style("stroke", "#000000")
             .style("stroke-width", "0.5");
+        d3.select(".infolabel")
+            .remove();
     }
 
     function setLabel(props){
-        var labelAttr = "<h1>" + props[expressed] + "</h1><b>" + expressed + "</b>"
+        var labelAttr = "<h1>" + expressed + "</h1><b>" + expressed + "</b>"
 
         var infolabel = d3.select("body")
             .append("div")
