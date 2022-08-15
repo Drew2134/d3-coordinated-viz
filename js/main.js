@@ -279,7 +279,7 @@
 
         var colorScale = setColorScale(csvData);
 
-        var tracts = d3.selectAll(".tracts")
+        var tracts = d3.selectAll(".path")
             .style("fill", function(d){
                 console.log(expressed)
                 return colorScale(d.properties[expressed])
