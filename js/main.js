@@ -130,7 +130,7 @@
                 return colorScale(d.properties[expressed])
             })
             .on("mouseover", function(d){
-                highlight(d.target.__data__.properties)
+                highlight(map, d.target.__data__.properties)
             });
     }
 
@@ -244,7 +244,7 @@
             });
     }
 
-    function highlight(props){
+    function highlight(map, props){
         var selected = map.selectAll(".tracts " + props.NAME)
             .style("stroke", "cyan")
             .styel("stroke-width", "2");
