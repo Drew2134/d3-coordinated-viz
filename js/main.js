@@ -236,7 +236,7 @@
                 return colorScale(d.properties[expressed])
             });
 
-        var bubbles = d3.selectAll(".bubbles")
+        var bubbles = d3.selectAll(".Bubble")
             .style("fill", function(d){
                 return colorScale(d.properties[expressed])
             });
@@ -318,7 +318,8 @@
             .attr("fill-opacity", fillOpacity)
             .attr("r", d => d.r)
             .attr("class", function(d) {
-                return "Bubble " + d.name);
+                return "Bubble " + d.name
+            });
     
         if (T) leaf.append("title")
             .text(d => T[d.data]);
