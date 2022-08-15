@@ -276,19 +276,8 @@
     function dehighlight(props){
         var className = ".tracts_" + props.NAME.replace(".", "-")
         var selected = d3.selectAll(className)
-            .style("stroke", () => {
-                return getStyle(this, "stroke-width")
-            })
-
-        function getStyle(element, styleName){
-            var styleText = d3.select(element)
-                .select("desc")
-                .text();
-    
-            var styleObject = JSON.parse(styleText);
-    
-            return styleObject[styleName];
-        };
+            .style("stroke", "#000000")
+            .style("stroke-width", "0.5");
     }
 
     // Copyright 2021 Observable, Inc.
