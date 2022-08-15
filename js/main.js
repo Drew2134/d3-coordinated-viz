@@ -201,6 +201,8 @@
                         fill: d => colorScale(d.value),
                         width: 800
                     });
+        
+        bubble.classed("bubbleChart", true);
         $(".chartDiv").append(bubble);
     }
 
@@ -235,7 +237,7 @@
                 return colorScale(d.properties[expressed])
             });
 
-        var bubbles = d3.selectAll("circle")
+        var bubbles = d3.selectAll(".bubbleChart")
             .style("fill", function(d){
                 return colorScale(d.properties[expressed])
             });
