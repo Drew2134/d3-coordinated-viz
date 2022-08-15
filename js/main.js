@@ -197,13 +197,7 @@
                         name: d => "",
                         title: d => "Census Tract: " + d.name + "\nCount: " + d.value,
                         value: d => d.value,
-                        colors: d => [
-                            "#edf8e9",
-                            "#bae4b3",
-                            "#74c476",
-                            "#31a354",
-                            "#006d2c"
-                        ],
+                        colors: d => colorScale(d.properties[expressed]),
                         width: 800
                     });
 
