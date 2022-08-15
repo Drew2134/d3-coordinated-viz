@@ -130,7 +130,8 @@
                 return colorScale(d.properties[expressed])
             })
             .on("mouseover", function(d){
-                console.log(d.fromElement)
+                console.log(d.properties)
+                console.log(d.fromElement.__data__.properties)
                 //highlight(d.properties)
             });
     }
