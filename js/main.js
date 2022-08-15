@@ -316,8 +316,8 @@
     }
 
     function moveLabel(d){
-        var x = d3.d.clientX + 10,
-            y = d3.d.clientY - 75;
+        var x = d.clientX + 10,
+            y = d.clientY - 75;
     
         d3.select(".infolabel")
             .style("left", x + "px")
