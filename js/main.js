@@ -222,7 +222,23 @@
             .enter()
             .append("option")
             .attr("value", function(d){ return d })
-            .text(function(d){ return d });
+            .text(function(d){
+                if(d == "noHighSchool"){
+                    return "No High School";
+                } else if(d == "someHighSchool"){
+                    return "Some High School";
+                } else if(d == "highSchoolGraduate"){
+                    return "High School Graduate";
+                } else if(d == "someCollege"){
+                    return "Some College";
+                } else if(d == "associates"){
+                    return "Associates Degree";
+                } else if(d == "bachelors"){
+                    return "Bachelors Degree";
+                } else if(d == "graduate"){
+                    return "Graduate Degree";
+                }
+            });
     }
 
     function changeAttribute(attribute, csvData){
