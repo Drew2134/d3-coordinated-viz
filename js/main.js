@@ -279,6 +279,20 @@
             .style("stroke-width", "0.5");
     }
 
+    function setLabel(props){
+        var labelAttr = "<h1>" + props[expressed] + "</h1><b>" + expressed + "</b>"
+
+        var infolabel = d3.select("body")
+            .append("div")
+            .attr("class", "infolabel")
+            .attr("id", props.adm1_code + "_label")
+            .html(labelAttribute);
+    
+        var regionName = infolabel.append("div")
+            .attr("class", "labelname")
+            .html(props.name);
+    }
+
     // Copyright 2021 Observable, Inc.
     // Released under the ISC license.
     // https://observablehq.com/@d3/bubble-chart
