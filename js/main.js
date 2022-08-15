@@ -236,10 +236,7 @@
                 return colorScale(d.properties[expressed])
             });
 
-        var bubbles = d3.selectAll(".Bubble")
-            .style("fill", function(d){
-                return colorScale(d.value)
-            });
+        setChart(csvData, colorScale);
     }
 
     // Copyright 2021 Observable, Inc.
