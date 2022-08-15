@@ -202,7 +202,6 @@
                         width: 800
                     });
         
-        bubble.classed("bubbleChart", true);
         $(".chartDiv").append(bubble);
     }
 
@@ -237,7 +236,7 @@
                 return colorScale(d.properties[expressed])
             });
 
-        var bubbles = d3.selectAll(".bubbleChart")
+        var bubbles = d3.selectAll(".bubbles")
             .style("fill", function(d){
                 return colorScale(d.properties[expressed])
             });
@@ -317,7 +316,8 @@
             .attr("stroke-opacity", strokeOpacity)
             .attr("fill", G ? d => color(G[d.data]) : fill == null ? "none" : fill)
             .attr("fill-opacity", fillOpacity)
-            .attr("r", d => d.r);
+            .attr("r", d => d.r)
+            .attr("class", "bubbles");
     
         if (T) leaf.append("title")
             .text(d => T[d.data]);
