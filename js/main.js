@@ -235,7 +235,7 @@
                 return colorScale(d.properties[expressed])
             });
 
-        var bubbles = d3.selectAll("a")
+        var bubbles = d3.selectAll("circle")
             .style("fill", function(d){
                 return colorScale(d.properties[expressed])
             });
