@@ -130,7 +130,7 @@
                 return colorScale(d.properties[expressed])
             })
             .on("mouseover", function(d){
-                highlight(d.properties)
+                highlight(d.properties.NAME)
             });
     }
 
@@ -245,7 +245,7 @@
     }
 
     function highlight(props){
-        var selected = d3.selectAll("." + props.NAME)
+        var selected = d3.selectAll("." + props)
             .style("stroke", "cyan")
             .styel("stroke-width", "2");
     }
