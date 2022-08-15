@@ -136,7 +136,7 @@
             .on("mouseout", (d) => {
                 dehighlight(d.fromElement.__data__.properties)
             })
-            //.on("mousemove", moveLabel);
+            .on("mousemove", moveLabel);
         
         var desc = tracts.append("desc")
             .text('{"stroke": "#000", "stroke-width": "0.5px"}');
@@ -314,6 +314,16 @@
             .attr("class", "labelname")
             .html("Census Tract: " + props.NAME);
     }
+
+    function moveLabel(){
+        //use coordinates of mousemove event to set label coordinates
+        var x = d3.event.clientX + 10,
+            y = d3.event.clientY - 75;
+    
+        d3.select(".infolabel")
+            .style("left", x + "px")
+            .style("top", y + "px");
+    };
 
     // Copyright 2021 Observable, Inc.
     // Released under the ISC license.
