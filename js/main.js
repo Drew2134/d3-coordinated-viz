@@ -130,7 +130,7 @@
                 return colorScale(d.properties[expressed])
             })
             .on("mouseover", function(d){
-                highlight(map, d.target.__data__.properties)
+                highlight(map, d.properties)
             });
     }
 
