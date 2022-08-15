@@ -196,7 +196,7 @@
                         name: d => "",
                         title: d => d.name,
                         value: d => d.value,
-                        colors = [
+                        colors: [
                             "#edf8e9",
                             "#bae4b3",
                             "#74c476",
