@@ -1,7 +1,7 @@
 (function(){
 
     var eduAttrs = ["noHighSchool", "someHighSchool", "highSchoolGraduate", "someCollege", "associates", "bachelors", "graduate"];
-    var expressed = eduAttrs[1];
+    var expressed = eduAttrs[0];
     
     window.onload = (event) => {
         setMap();
