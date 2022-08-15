@@ -128,9 +128,6 @@
             .attr("d", path)
             .style("fill", function(d){
                 return colorScale(d.properties[expressed])
-            })
-            .on("mouseover", function(d){
-                highlight(d.properties)
             });
     }
 
@@ -199,7 +196,7 @@
         
         var bubble = BubbleChart(data, {
                         name: d => "",
-                        title: d => "Census Tract " + d.name + "\nCount: " + d.value,
+                        title: d => "Census Tract: " + d.name + "\nCount: " + d.value,
                         value: d => d.value,
                         fill: d => colorScale(d.value),
                         width: 800
@@ -242,12 +239,6 @@
                     return "Graduate Degree";
                 }
             });
-    }
-
-    function highlight(props){
-        var selected = d3.selectAll(".tracts " + props.NAME)
-            .style("stroke", "cyan")
-            .styel("stroke-width", "2");
     }
 
     function changeAttribute(attribute, csvData){
@@ -339,8 +330,7 @@
             .attr("stroke-opacity", strokeOpacity)
             .attr("fill", G ? d => color(G[d.data]) : fill == null ? "none" : fill)
             .attr("fill-opacity", fillOpacity)
-            .attr("r", d => d.r)
-            .attr("class", d => "tracts " + d.name);
+            .attr("r", d => d.r);
     
         if (T) leaf.append("title")
             .text(d => T[d.data]);
