@@ -234,6 +234,11 @@
             .style("fill", function(d){
                 return colorScale(d.properties[expressed])
             });
+
+        var bubbles = d3.selectAll("a")
+            .style("fill", function(d){
+                return colorScale(d.properties[expressed])
+            });
     }
 
     // Copyright 2021 Observable, Inc.
