@@ -245,8 +245,8 @@
             });
     }
 
-    function highlight(d){
-        var selected = d3.selectAll("." + d)
+    function highlight(props){
+        var selected = d3.selectAll(".tracts " + props.NAME)
             .style("stroke", "cyan")
             .styel("stroke-width", "2");
     }
