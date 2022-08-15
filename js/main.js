@@ -118,6 +118,7 @@
     }
 
     function setEnumerationUnits(dcTracts, map, path, colorScale){
+        console.log(dcTracts.properties)
         var tracts = map.selectAll(".tracts")
             .data(dcTracts)
             .enter()
