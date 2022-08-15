@@ -128,6 +128,9 @@
             .attr("d", path)
             .style("fill", function(d){
                 return colorScale(d.properties[expressed])
+            })
+            .on("mouseover", function(d){
+                highlight(d.properties)
             });
     }
 
@@ -239,6 +242,12 @@
                     return "Graduate Degree";
                 }
             });
+    }
+
+    function highlight(props){
+        var selected = d3.selectAll("." + props.NAMELSAD)
+            .style("stroke", "cyan")
+            .styel("stroke-width", "2");
     }
 
     function changeAttribute(attribute, csvData){
