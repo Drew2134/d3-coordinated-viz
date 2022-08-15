@@ -1,29 +1,37 @@
 (function(){
 
+    //pseudo-global variable for the current selected attribute
     var eduAttrs = ["noHighSchool", "someHighSchool", "highSchoolGraduate", "someCollege", "associates", "bachelors", "graduate"];
     var expressed = eduAttrs[0];
     
+    //run map setup after the window is finished loading
     window.onload = (event) => {
         setMap();
     };
 
+    //main map set up function
     function setMap() {
+
+        //set the size of the map view box
         var width = window.innerWidth * 0.48,
             height = window.innerHeight * 0.80,
             viewBox = "0 0 " + width + " " + height;
 
+        //create map div element
         var mapDiv = d3.select("body")
             .append("div")
             .attr("width", width)
             .attr("height", height)
             .classed("mapDiv", true)
 
+        //create map svg
         var map = d3.select(".mapDiv")
             .append("svg")
             .attr("preserveAspectRatio", "xMinYMin meet")
             .attr("viewBox", viewBox)
             .classed("map", true);
 
+        //set map projection to geoAlbers center on the center of D.C.
         var prj = d3.geoAlbers()
             .center([0, 38.90])
             .rotate([77.038, 0])
@@ -34,6 +42,7 @@
         var path = d3.geoPath()
             .projection(prj);
 
+        //use promises to load all of the topojson files needed
         var promises = [];
         promises.push(d3.csv("data/education_attainment.csv")); //load education tabular data
         promises.push(d3.json("data/states_main.topojson")); //load background states shapes
