@@ -285,7 +285,24 @@
     }
 
     function setLabel(props){
-        var labelAttr = "<h1>" + expressed + "</h1><b>" + expressed + "</b>"
+        var label = ""
+        if(expressed == "noHighSchool"){
+            label = "No High School";
+        } else if(expressed == "someHighSchool"){
+            label = "Some High School";
+        } else if(expressed == "highSchoolGraduate"){
+            label = "High School Graduate";
+        } else if(expressed == "someCollege"){
+            label = "Some College";
+        } else if(expressed == "associates"){
+            label = "Associates Degree";
+        } else if(expressed == "bachelors"){
+            label = "Bachelors Degree";
+        } else if(expressed == "graduate"){
+            label = "Graduate Degree";
+        }
+
+        var labelAttr = "<h1>" + label + "</h1><b>" + expressed + "</b>"
 
         var infolabel = d3.select("body")
             .append("div")
