@@ -293,7 +293,7 @@
     
         var regionName = infolabel.append("div")
             .attr("class", "labelname")
-            .html(props.name);
+            .html(props.NAME);
     }
 
     // Copyright 2021 Observable, Inc.
