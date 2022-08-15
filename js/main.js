@@ -269,7 +269,7 @@
     function highlight(props){
         var className = ".tracts_" + props.NAME.replace(".", "-")
         var selected = d3.selectAll(className)
-            .style("stroke", "cyan")
+            .style("stroke", "red")
             .style("stroke-width", "2.5");
     }
 
@@ -277,8 +277,18 @@
         var className = ".tracts_" + props.NAME.replace(".", "-")
         var selected = d3.selectAll(className)
             .style("stroke", () => {
-                return "pink"
+                return getStyle(this, "stroke-width")
             })
+
+        function getStyle(element, styleName){
+            var styleText = d3.select(element)
+                .select("desc")
+                .text();
+    
+            var styleObject = JSON.parse(styleText);
+    
+            return styleObject[styleName];
+        };
     }
 
     // Copyright 2021 Observable, Inc.
