@@ -68,7 +68,7 @@
 
             setInset(lowStates, lowTracts);
 
-            setChart(csvData);
+            setChart(csvData, colorScale);
         }
     }
 
@@ -174,6 +174,7 @@
     }
 
     function setChart(csvData, colorScale) {
+        console.log(colorScale);
         var width = window.innerWidth * 0.48,
             height = window.innerHeight * 0.80,
             viewBox = "0 0 " + width + " " + height;
