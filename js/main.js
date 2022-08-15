@@ -130,7 +130,7 @@
                 return colorScale(d.properties[expressed])
             })
             .on("mouseover", (d) => {
-                console.log("over")
+                console.log("over", d)
             });
     }
 
