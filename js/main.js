@@ -123,7 +123,7 @@
             .enter()
             .append("path")
             .attr("class", function(d) {
-                return "tracts " + d.properties.NAME;
+                return "tracts_" + d.properties.NAME;
             })
             .attr("d", path)
             .style("fill", function(d){
@@ -135,7 +135,7 @@
     }
 
     function highlight(props){
-        var selected = d3.select(".tracts " + props.NAME.toStrin())
+        var selected = d3.select(".tracts_" + props.NAME.toString())
             .style("stroke", "cyan")
             .style("stroke-width", "2");
     }
