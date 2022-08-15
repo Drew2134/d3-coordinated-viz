@@ -130,7 +130,7 @@
                 return colorScale(d.properties[expressed])
             })
             .on("mouseover", function(d){
-                highlight(map, d.properties)
+                highlight(d.properties)
             });
     }
 
@@ -244,8 +244,8 @@
             });
     }
 
-    function highlight(map, props){
-        var selected = map.selectAll(".tracts " + props.NAME)
+    function highlight(props){
+        var selected = d3.selectAll(".tracts " + props.NAME)
             .style("stroke", "cyan")
             .styel("stroke-width", "2");
     }
@@ -339,7 +339,8 @@
             .attr("stroke-opacity", strokeOpacity)
             .attr("fill", G ? d => color(G[d.data]) : fill == null ? "none" : fill)
             .attr("fill-opacity", fillOpacity)
-            .attr("r", d => d.r);
+            .attr("r", d => d.r)
+            .attr("class", "tracts " + D.name);
     
         if (T) leaf.append("title")
             .text(d => T[d.data]);
