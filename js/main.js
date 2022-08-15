@@ -53,36 +53,46 @@
 
         function callback(data, csvData, usStates, dcTracts, lowStates, lowTracts) {
 
+            //pull the loaded data from the array of promises
             csvData = data[0];
             statesData = data[1];
             tractsData = data[2];
             coreStatesData = data[3];
             coreTractsData = data[4];
 
+            //assign the features from each data source to variables
             var usStates = topojson.feature(statesData, statesData.objects.states_final);
             var tracts = topojson.feature(tractsData, tractsData.objects.tracts_final).features;
             var lowStates = topojson.feature(coreStatesData, coreStatesData.objects.states);
             var lowTracts = topojson.feature(coreTractsData, coreTractsData.objects.tracts).features;
             
+            //generate the paths for the state outlines
             var states = map.append("path")
                 .datum(usStates)
                 .attr("class", "states")
                 .attr("d", path);
 
+            //assign the color scale function to a variable for setting the enumeration units and bubble chart
             var colorScale = setColorScale(csvData);
 
+            //assign the joined csv and tract topojson data to a common variable
             dcTracts = joinData(tracts, csvData);
 
+            //call enumeration generator function
             setEnumerationUnits(dcTracts, map, path, colorScale);
 
+            //inset map generator function
             setInset(lowStates, lowTracts);
 
+            //call cahrt generator function
             setChart(csvData, colorScale);
 
+            //call dropdown generator function
             createDropdown(csvData);
         }
     }
 
+    //use d3 scale qunatile to create a color scale for choropleth mapping
     function setColorScale(data){
         var colorClasses = [
             "#edf8e9",
@@ -313,7 +323,7 @@
             label = "Graduate Degree";
         }
 
-        var labelAttr = "<h1>" + label + "</h1><h2>" + props[expressed] + "</h2>"
+        var labelAttr = "<h1>Census Tract: " + props.NAME + "</h1><h2>" + props[expressed] + "</h2>"
 
         var infolabel = d3.select("body")
             .append("div")
@@ -323,7 +333,7 @@
     
         var regionName = infolabel.append("div")
             .attr("class", "labelname")
-            .html("Census Tract: " + props.NAME);
+            .html(label);
     }
 
     function moveLabel(d){
