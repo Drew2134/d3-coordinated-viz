@@ -173,7 +173,7 @@
             .style("fill", "red"); 
     }
 
-    function setChart(csvData) {
+    function setChart(csvData, colorScale) {
         var width = window.innerWidth * 0.48,
             height = window.innerHeight * 0.80,
             viewBox = "0 0 " + width + " " + height;
@@ -196,6 +196,7 @@
                         name: d => "",
                         title: d => d.name,
                         value: d => d.value,
+                        group: colorScale,
                         width: 800
                     });
 
