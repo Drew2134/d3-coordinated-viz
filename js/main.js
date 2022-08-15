@@ -131,7 +131,12 @@
             })
             .on("mouseover", (d) => {
                 console.log("over", d)
+                highlight(d.target);
             });
+    }
+
+    function highlight(props){
+        console.log(props);
     }
 
     function setInset(usStates, dcTracts) {
