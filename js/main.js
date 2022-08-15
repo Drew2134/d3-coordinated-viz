@@ -246,7 +246,7 @@
     }
 
     function highlight(props){
-        var selected = d3.selectAll(".tracts " + props.NAME)
+        var selected = d3.selectAll("tracts " + props.NAME)
             .style("stroke", "cyan")
             .styel("stroke-width", "2");
     }
