@@ -413,6 +413,8 @@
             .attr("xlink:href", link == null ? null : (d, i) => link(D[d.data], i, data))
             .attr("target", link == null ? null : linkTarget)
             .attr("transform", d => `translate(${d.x},${d.y})`);
+
+        console.log(data, D)
     
         leaf.append("circle")
             .attr("stroke", stroke)
@@ -421,7 +423,7 @@
             .attr("fill", G ? d => color(G[d.data]) : fill == null ? "none" : fill)
             .attr("fill-opacity", fillOpacity)
             .attr("r", d => d.r)
-            //.attr("class", data.name);
+            .attr("class", data.name);
     
         if (T) leaf.append("title")
             .text(d => T[d.data]);
