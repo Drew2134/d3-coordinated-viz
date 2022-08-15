@@ -201,7 +201,6 @@
                         fill: d => colorScale(d.value),
                         width: 800
                     });
-        bubble.attr("class", "bubbleChart");
         $(".chartDiv").append(bubble);
     }
 
@@ -299,7 +298,8 @@
             .attr("fill", "currentColor")
             .attr("font-size", 10)
             .attr("font-family", "sans-serif")
-            .attr("text-anchor", "middle");
+            .attr("text-anchor", "middle")
+            .attr("class", "bubbleChart");
     
         const leaf = svg.selectAll("a")
         .data(root.leaves())
@@ -314,10 +314,7 @@
             .attr("stroke-opacity", strokeOpacity)
             .attr("fill", G ? d => color(G[d.data]) : fill == null ? "none" : fill)
             .attr("fill-opacity", fillOpacity)
-            .attr("r", d => d.r)
-            .attr("class", function(d) {
-                return "Bubble " + d.name
-            });
+            .attr("r", d => d.r);
     
         if (T) leaf.append("title")
             .text(d => T[d.data]);
