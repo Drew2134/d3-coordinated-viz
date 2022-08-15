@@ -204,10 +204,13 @@
         $(".chartDiv").append(bubble);
     }
 
-    function createDropdown(){
+    function createDropdown(csvData){
         var dropdown = d3.select("body")
             .append("select")
-            .attr("class", "dropdown");
+            .attr("class", "dropdown")
+            .on("change", function(){
+                changeAttribute(this,value, csvData)
+            });
         
         var titleOption = dropdown.append("option")
             .attr("class", "titleOption")
@@ -220,6 +223,17 @@
             .append("option")
             .attr("value", function(d){ return d })
             .text(function(d){ return d });
+    }
+
+    function changeAttribute(attribute, csvData){
+        expressed = attribute;
+
+        var colorScale = setColorScale(csvData);
+
+        var tracts = d3.selectAll(".tracts")
+            .style("fill", function(d){
+                return colorScale(d.properties[expressed])
+            });
     }
 
     // Copyright 2021 Observable, Inc.
