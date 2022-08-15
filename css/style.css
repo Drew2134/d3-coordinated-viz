@@ -71,4 +71,11 @@ html, body {
     stroke-linecap: round;
 }
 
+.dropdown {
+    position: absolute;
+    left: 30px;
+    top: 30px;
+    z-index: 10;
+}
+
 
