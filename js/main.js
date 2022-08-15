@@ -134,6 +134,7 @@
                 highlight(d.target.__data__.properties);
             })
             .on("mouseout", (d) => {
+                console.log(d)
                 dehighlight(d.properties)
             });
         
