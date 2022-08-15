@@ -238,7 +238,7 @@
 
         var bubbles = d3.selectAll(".Bubble")
             .style("fill", function(d){
-                return colorScale(d.properties[expressed])
+                return colorScale(d.value)
             });
     }
 
