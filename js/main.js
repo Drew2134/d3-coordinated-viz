@@ -128,6 +128,9 @@
             .attr("d", path)
             .style("fill", function(d){
                 return colorScale(d.properties[expressed])
+            })
+            .on("mouseover", (d) => {
+                console.log("over")
             });
     }
 
