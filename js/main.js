@@ -227,7 +227,7 @@
         }
         
         var bubble = BubbleChart(data, {
-                        name: d => d.name,
+                        name: d => "",
                         title: d => "Census Tract: " + d.name + "\nCount: " + d.value,
                         value: d => d.value,
                         fill: d => colorScale(d.value),
@@ -415,7 +415,7 @@
             .attr("target", link == null ? null : linkTarget)
             .attr("transform", d => `translate(${d.x},${d.y})`);
     
-        console.log(D.name)
+        console.log(name)
         leaf.append("circle")
             .attr("stroke", stroke)
             .attr("stroke-width", strokeWidth)
@@ -423,7 +423,7 @@
             .attr("fill", G ? d => color(G[d.data]) : fill == null ? "none" : fill)
             .attr("fill-opacity", fillOpacity)
             .attr("r", d => d.r)
-            .attr("class", d => d.name);
+            .attr("class", name);
     
         if (T) leaf.append("title")
             .text(d => T[d.data]);
