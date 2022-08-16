@@ -416,7 +416,7 @@
             .attr("target", link == null ? null : linkTarget)
             .attr("transform", d => `translate(${d.x},${d.y})`);
     
-        console.log(D.name)
+        console.log(d => d.data)
         leaf.append("circle")
             .attr("stroke", stroke)
             .attr("stroke-width", strokeWidth)
