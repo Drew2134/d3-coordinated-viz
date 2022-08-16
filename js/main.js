@@ -234,7 +234,7 @@
                         fill: d => colorScale(d.value),
                         width: 800
                     });
-        var chart = d3.selectAll(".bubble")
+        var chart = d3.selectAll("[class^='bubble']")
                      .on("mouseover", console.log("over")/*(d) => {
                 highlight(d.target.__data__.properties);*/
             )
