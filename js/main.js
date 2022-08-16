@@ -102,7 +102,7 @@
             "#006d2c"
         ];
 
-        var colorScale = d3.scaleQuantize()
+        var colorScale = d3.scaleQuantile()
             .range(colorClasses);
 
         var domainArray = [];
