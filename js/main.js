@@ -112,7 +112,7 @@
         };
 
         colorScale.domain(domainArray);
-        console.log(colorScale(data[i][expressed]))
+        console.log(colorScale)
 
         return colorScale;
     }
