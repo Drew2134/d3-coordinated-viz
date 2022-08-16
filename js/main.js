@@ -96,12 +96,10 @@
     function setColorScale(data){
         var colorClasses = [
             "#edf8fb",
-            "#ccece6",
-            "#99d8c9",
+            "#b2e2e2",
             "#66c2a4",
-            "#41ae76",
-            "#238b45",
-            "#005824"
+            "#2ca25f",
+            "#006d2c"
         ];
 
         var colorScale = d3.scaleQuantile()
@@ -109,7 +107,7 @@
 
         var domainArray = [];
         for (var i=0; i < data.length; i++){
-            var val = parseFloat(data[i][expressed] / 501986) * 100;
+            var val = parseFloat(data[i][expressed]);
             domainArray.push(val);
         };
 
