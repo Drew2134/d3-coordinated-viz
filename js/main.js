@@ -1,8 +1,8 @@
 (function(){
 
     //pseudo-global variable for the current selected attribute
-    var eduAttrs = ["noHighSchool", "someHighSchool", "highSchoolGraduate", "someCollege", "associates", "bachelors", "graduate"];
-    var expressed = eduAttrs[0];
+    var eduAttrs = ["total_population", "noHighSchool", "someHighSchool", "highSchoolGraduate", "someCollege", "associates", "bachelors", "graduate"];
+    var expressed = eduAttrs[1];
     
     //run map setup after the window is finished loading
     window.onload = (event) => {
@@ -250,7 +250,7 @@
             .text("Select Education Level");
         
         var attrOptions = dropdown.selectAll("attrOptions")
-            .data(eduAttrs)
+            .data(eduAttrs.slice(1))
             .enter()
             .append("option")
             .attr("value", function(d){ return d })
