@@ -5,7 +5,7 @@ html, body {
 body {
     height: 97.5vh;
     border: solid;
-    background-color: "beige";
+    background-color: beige;
 }
 
 .header {
