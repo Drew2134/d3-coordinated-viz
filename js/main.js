@@ -541,14 +541,14 @@
             .attr("fill-opacity", fillOpacity)
             .attr("r", d => d.r)
             .attr("class", d => N[d.data])
-            .on("mouseover", (d) => {
-                highlightBubble(d.target);
+            .on("mouseover", (e) => {
+                highlightBubble(e.target);
             })
-            .on("mouseout", (d) => {
-                dehighlightBubble(d.fromElement)
+            .on("mouseout", (e) => {
+                dehighlightBubble(e.fromElement)
             })
-            .on("mousemove", (d) => {
-                moveLabelBubble(d)
+            .on("mousemove", (e) => {
+                moveLabelBubble(e)
             });;
     
         if (T) leaf.append("title")
