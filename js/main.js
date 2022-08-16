@@ -303,7 +303,7 @@
     }
 
     function highlightBubble(props){
-        var tract_num = props.target.className.baseVal.slice(7)
+        var tract_num = props.className.baseVal.slice(7)
         var selectedBubble = d3.selectAll(".bubble_" + tract_num)
             .style("stroke", "magenta")
             .style("stroke-width", "3.5");
@@ -312,7 +312,7 @@
             .style("stroke", "magenta")
             .style("stroke-width", "3.5");
 
-        console.log(props)
+        console.log(props.__data__.value)
         
         var propsObj = {
             NAME: tract_num.replace("-", "."),
@@ -494,7 +494,7 @@
             .attr("r", d => d.r)
             .attr("class", d => N[d.data])
             .on("mouseover", (d) => {
-                highlightBubble(d);
+                highlightBubble(d.target);
             })
             .on("mouseout", (d) => {
                 dehighlightBubble(d.fromElement)
