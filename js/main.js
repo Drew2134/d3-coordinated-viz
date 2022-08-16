@@ -303,7 +303,11 @@
     }
 
     function highlightBubble(props){
-        var selected = d3.selectAll(props)
+        var selected = d3.selectAll(props.className)
+            .style("stroke", "magenta")
+            .style("stroke-width", "3.5");
+        
+        
     }
 
     function dehighlight(props){
@@ -440,7 +444,6 @@
             .attr("r", d => d.r)
             .attr("class", d => N[d.data])
             .on("mouseover", (d) => {
-                console.log(d.target.className);
                 highlightBubble(d.target);
             })
             .on("mouseout", (d) => {
