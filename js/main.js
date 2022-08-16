@@ -200,7 +200,7 @@
             .data(dcTracts)
             .enter()
             .append("path")
-            .attr("class", function(d) {
+            .attr("class", (d) => {
                 return d.properties.NAME;
             })
             .attr("d", path)
@@ -276,20 +276,26 @@
             });
     }
 
+    //change the expressed attribute value
     function changeAttribute(attribute, csvData){
         expressed = attribute;
 
+        //get new color scale from selected variable
         var colorScale = setColorScale(csvData);
 
+        //style the census tracts with the new color scale
         var tracts = d3.selectAll("[class^='tract']")
             .style("fill", (d) => {
                 return colorScale(d.properties[expressed])
             });
 
+        //remove old chart from DOM and re-build with new color scale and values
+        //bubble chart needs to be re-built for proper sizing and alignment
         d3.select(".chartDiv").remove();
         setChart(csvData, colorScale);
     }
 
+    //highligh tracts and linked bubbles on tract mouseover
     function highlight(props){
         var className = ".tracts_" + props.NAME.replace(".", "-")
         var selectedTract = d3.selectAll(className)
@@ -304,56 +310,28 @@
         setLabel(props);
     }
 
-    function highlightBubble(props){
-        var tract_num = props.className.baseVal.slice(7)
-        var selectedBubble = d3.selectAll(".bubble_" + tract_num)
-            .style("stroke", "magenta")
-            .style("stroke-width", "3.5");
-        
-        var selectedTract = d3.selectAll(".tracts_" + tract_num)
-            .style("stroke", "magenta")
-            .style("stroke-width", "3.5");
-        
-        var propsObj = {
-            NAME: tract_num.replace("-", "."),
-            VALUE: props.__data__.value
-        }
-
-        setLabelBubble(propsObj)
-        
-    }
-
+    //remove the highlighting on mouseout
     function dehighlight(props){
+        //selects all previously hovered tracts and resets the style
         var className = ".tracts_" + props.NAME.replace(".", "-")
         var selectedTract = d3.selectAll(className)
             .style("stroke", "#000000")
             .style("stroke-width", "0");
-            
+        
+        //selects all previously linked bubbles and resets the style
         var bubbleName = ".bubble_" + props.NAME.replace(".", "-")
         var selectedBubble = d3.selectAll(bubbleName)
             .style("stroke", "#000000")
             .style("stroke-width", "0");
 
+        //removes the previously hovered tract popup from the DOM
         d3.select(".infolabel")
             .remove();
     }
 
-    function dehighlightBubble(props){
-        var tract_num = props.className.baseVal.slice(7)
-        var selectedBubble = d3.selectAll(".bubble_" + tract_num)
-            .style("stroke", "#000000")
-            .style("stroke-width", "0");
-            
-        var selectedTract = d3.selectAll(".tracts_" + tract_num)
-            .style("stroke", "#000000")
-            .style("stroke-width", "0");
-
-        d3.select(".infolabel")
-            .remove();
-
-    }
-
+    //sets a new popup template when hovered over tract
     function setLabel(props){
+        //get the current expressed variable and format it for a label
         var label = ""
         if(expressed == "noHighSchool"){
             label = "No High School";
@@ -371,8 +349,10 @@
             label = "Graduate Degree";
         }
 
-        var labelAttr = "<h1>Census Tract: " + props.NAME + "</h1><h2>" + props[expressed] + "</h2>"
+        //get the tract name and count of people
+        var labelAttr = "<h1>Census Tract: " + props.NAME + "</h1><h2>" + props[expressed] + " people</h2>"
 
+        //create the popup
         var infolabel = d3.select("body")
             .append("div")
             .attr("class", "infolabel")
@@ -384,6 +364,74 @@
             .html(label);
     }
 
+    //updates the x,y location of the popup to follow the cursor
+    function moveLabel(d){
+        var x = d.clientX + 20,
+            y = d.clientY - 75;
+    
+        d3.select(".infolabel")
+            .style("left", x + "px")
+            .style("top", y + "px");
+    };
+
+    //needed separate set of event listeners on bubbles
+    //the circles in the svg do not hold the data in the same manner as the tracts
+    function highlightBubble(props){
+        //pull tract number from tract name
+        var tract_num = props.className.baseVal.slice(7)
+
+        //select all bubbles with matching tract number and highlight magenta
+        var selectedBubble = d3.selectAll(".bubble_" + tract_num)
+            .style("stroke", "magenta")
+            .style("stroke-width", "3.5");
+        
+        //select all linked tracts and highlight magenta
+        var selectedTract = d3.selectAll(".tracts_" + tract_num)
+            .style("stroke", "magenta")
+            .style("stroke-width", "3.5");
+        
+        //create new properties object
+        //get original tract name and current value
+        var propsObj = {
+            NAME: tract_num.replace("-", "."),
+            VALUE: props.__data__.value
+        }
+
+        setLabelBubble(propsObj)
+        
+    }
+
+    //remove highlighting from bubble hover
+    function dehighlightBubble(props){
+        //pull tract number from class name
+        var tract_num = props.className.baseVal.slice(7)
+
+        //select all bubbles with matching tract number from previous hover and reset style
+        var selectedBubble = d3.selectAll(".bubble_" + tract_num)
+            .style("stroke", "#000000")
+            .style("stroke-width", "0");
+            
+        //select all previously linked tracts and reset style
+        var selectedTract = d3.selectAll(".tracts_" + tract_num)
+            .style("stroke", "#000000")
+            .style("stroke-width", "0");
+
+        d3.select(".infolabel")
+            .remove();
+
+    }
+
+    //wanted popup to appear on the left of the object
+    function moveLabelBubble(d){
+        var x = d.clientX - 380,
+            y = d.clientY - 75;
+        
+        d3.select(".infolabel")
+            .style("left", x + "px")
+            .style("top", y + "px");
+    }
+
+    //uses new properties object to create smae popup template
     function setLabelBubble(props){
         var label = ""
         if(expressed == "noHighSchool"){
@@ -402,7 +450,7 @@
             label = "Graduate Degree";
         }
 
-        var labelAttr = "<h1>Census Tract: " + props.NAME + "</h1><h2>" + props.VALUE + "</h2>"
+        var labelAttr = "<h1>Census Tract: " + props.NAME + "</h1><h2>" + props.VALUE + " people</h2>"
 
         var infolabel = d3.select("body")
             .append("div")
@@ -413,24 +461,6 @@
         var regionName = infolabel.append("div")
             .attr("class", "labelname")
             .html(label);
-    }
-
-    function moveLabel(d){
-        var x = d.clientX + 20,
-            y = d.clientY - 75;
-    
-        d3.select(".infolabel")
-            .style("left", x + "px")
-            .style("top", y + "px");
-    };
-
-    function moveLabelBubble(d){
-        var x = d.clientX - 380,
-            y = d.clientY - 75;
-        
-        d3.select(".infolabel")
-            .style("left", x + "px")
-            .style("top", y + "px");
     }
 
     // Copyright 2021 Observable, Inc.
