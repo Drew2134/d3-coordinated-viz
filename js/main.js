@@ -414,7 +414,7 @@
     }
 
     function moveLabel(d){
-        var x = d.clientX + 10,
+        var x = d.clientX + 20,
             y = d.clientY - 75;
     
         d3.select(".infolabel")
@@ -423,7 +423,7 @@
     };
 
     function moveLabelBubble(d){
-        var x = d.clientX - 400,
+        var x = d.clientX - 380,
             y = d.clientY - 75;
         
         d3.select(".infolabel")
