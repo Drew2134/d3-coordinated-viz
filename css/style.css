@@ -4,7 +4,8 @@ html, body {
 
 body {
     height: 97.5vh;
-    border: solid
+    border: solid;
+    background-color: "beige";
 }
 
 .header {
