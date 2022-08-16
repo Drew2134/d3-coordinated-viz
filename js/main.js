@@ -281,8 +281,8 @@
 
         var tracts = d3.selectAll("[class^='tract']")
             .style("fill", function(d){
-                console.log(d, d.properties)
-                return colorScale(d.properties[expressed])
+                if(d !== Node.ELEMENT_NODE){
+                return colorScale(d.properties[expressed])}
             });
 
         d3.select(".chartDiv").remove();
