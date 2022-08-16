@@ -95,11 +95,13 @@
     //use d3 scale qunatile to create a color scale for choropleth mapping
     function setColorScale(data){
         var colorClasses = [
-            "#edf8e9",
-            "#bae4b3",
-            "#74c476",
-            "#31a354",
-            "#006d2c"
+            "#edf8fb",
+            "#ccece6",
+            "#99d8c9",
+            "#66c2a4",
+            "#41ae76",
+            "#238b45",
+            "#005824"
         ];
 
         var colorScale = d3.scaleQuantile()
