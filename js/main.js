@@ -311,12 +311,10 @@
         var selectedTract = d3.selectAll(".tracts_" + tract_num)
             .style("stroke", "magenta")
             .style("stroke-width", "3.5");
-
-        console.log(props.__data__.value)
         
         var propsObj = {
             NAME: tract_num.replace("-", "."),
-            VALUE: props
+            VALUE: props.__data__.value
         }
 
         setLabelBubble(propsObj)
@@ -404,6 +402,15 @@
 
         var labelAttr = "<h1>Census Tract: " + props.NAME + "</h1><h2>" + props.VALUE + "</h2>"
 
+        var infolabel = d3.select("body")
+            .append("div")
+            .attr("class", "infolabel")
+            .attr("id", props.NAME + "_label")
+            .html(labelAttr);
+    
+        var regionName = infolabel.append("div")
+            .attr("class", "labelname")
+            .html(label);
     }
 
     function moveLabel(d){
