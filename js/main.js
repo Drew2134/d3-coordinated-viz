@@ -112,6 +112,7 @@
         };
 
         colorScale.domain(domainArray);
+        console.log(colorScale)
 
         return colorScale;
     }
