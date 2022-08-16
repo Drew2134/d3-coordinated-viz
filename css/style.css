@@ -1,5 +1,6 @@
 html, body {
     overflow: hidden;
+    border: #000, 2px, solid;
 }
 
 .header {
