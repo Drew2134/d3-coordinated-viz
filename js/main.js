@@ -227,7 +227,7 @@
         }
         
         var bubble = BubbleChart(data, {
-                        name: d => "tracts_" + d.name.replace(".", "-"),
+                        name: d => "bubble_" + d.name.replace(".", "-"),
                         label: d => "",
                         title: d => "Census Tract: " + d.name + "\nCount: " + d.value,
                         value: d => d.value,
@@ -281,8 +281,8 @@
 
         var tracts = d3.selectAll("[class^='tract']")
             .style("fill", function(d){
-                if(d !== Node.ELEMENT_NODE){
-                return colorScale(d.properties[expressed])}
+                console.log("SELECTED")
+                return colorScale(d.properties[expressed])
             });
 
         d3.select(".chartDiv").remove();
