@@ -435,9 +435,9 @@
             .attr("fill-opacity", fillOpacity)
             .attr("r", d => d.r)
             .attr("class", d => N[d.data])
-            .on("mouseover", console.log("over")/*(d) => {
-                highlight(d.target.__data__.properties);*/
-            )
+            .on("mouseover", (d) => {
+                highlight(d.target.__data__.properties);
+            })
             .on("mouseout", (d) => {
                 dehighlight(d.fromElement.__data__.properties)
             })
