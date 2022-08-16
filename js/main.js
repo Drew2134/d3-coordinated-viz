@@ -292,7 +292,7 @@
     function highlight(props){
         var className = ".tracts_" + props.NAME.replace(".", "-")
         var selected = d3.selectAll(className)
-            .style("stroke", "white")
+            .style("stroke", "magenta")
             .style("stroke-width", "3.5");
         
         setLabel(props);
