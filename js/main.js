@@ -109,7 +109,7 @@
 
         var domainArray = [];
         for (var i=0; i < data.length; i++){
-            var val = (data[i][expressed] / data[i]["total_population"]) * 100;
+            var val = data[i][expressed];
             domainArray.push(val);
         };
 
