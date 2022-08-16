@@ -104,7 +104,7 @@
             "#005824"
         ];
 
-        var colorScale = d3.scaleQuantize()
+        var colorScale = d3.scaleQuantile()
             .range(colorClasses);
 
         var domainArray = [];
@@ -113,7 +113,7 @@
             domainArray.push(val);
         };
 
-        colorScale.domain(d3.extent(domainArray));
+        colorScale.domain(domainArray);
 
         return colorScale;
     }
