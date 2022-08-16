@@ -423,7 +423,7 @@
             .attr("fill", G ? d => color(G[d.data]) : fill == null ? "none" : fill)
             .attr("fill-opacity", fillOpacity)
             .attr("r", d => d.r)
-            .attr("class", name);
+            .attr("class", D.name);
     
         if (T) leaf.append("title")
             .text(d => T[d.data]);
