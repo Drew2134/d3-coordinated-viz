@@ -107,12 +107,11 @@
 
         var domainArray = [];
         for (var i=0; i < data.length; i++){
-            var val = parseInt((data[i][expressed] / data[i]["total_population"]) * 100);
+            var val = parseInt((data[i][expressed] / data[i]["total_population"]) * 10000);
             domainArray.push(val);
         };
 
         colorScale.domain(domainArray);
-        console.log(colorScale)
 
         return colorScale;
     }
