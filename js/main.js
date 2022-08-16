@@ -302,6 +302,10 @@
         setLabel(props);
     }
 
+    function highlightBubble(props){
+        var selected = d3.selectAll(props)
+    }
+
     function dehighlight(props){
         var className = ".tracts_" + props.NAME.replace(".", "-")
         var selected = d3.selectAll(className)
@@ -436,11 +440,11 @@
             .attr("r", d => d.r)
             .attr("class", d => N[d.data])
             .on("mouseover", (d) => {
-                console.log(d);
-                highlight(d.target.__data__.properties);
+                console.log(d.target);
+                highlightBubble(d.target);
             })
             .on("mouseout", (d) => {
-                dehighlight(d.fromElement.__data__.properties)
+                dehighlightBubble(d.fromElement.__data__.properties)
             })
             .on("mousemove", (d) => {
                 moveLabel(d)
