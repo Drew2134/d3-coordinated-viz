@@ -436,6 +436,7 @@
             .attr("r", d => d.r)
             .attr("class", d => N[d.data])
             .on("mouseover", (d) => {
+                console.log(d);
                 highlight(d.target.__data__.properties);
             })
             .on("mouseout", (d) => {
