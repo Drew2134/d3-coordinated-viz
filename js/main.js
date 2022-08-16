@@ -149,14 +149,14 @@
             .style("fill", function(d){
                 return colorScale(d.properties[expressed])
             })
-            .on("mouseover", (d) => {
-                highlight(d.target.__data__.properties);
+            .on("mouseover", (e) => {
+                highlight(e.target.__data__.properties);
             })
-            .on("mouseout", (d) => {
-                dehighlight(d.fromElement.__data__.properties)
+            .on("mouseout", (e) => {
+                dehighlight(e.fromElement.__data__.properties)
             })
-            .on("mousemove", (d) => {
-                moveLabel(d)
+            .on("mousemove", (e) => {
+                moveLabel(e)
             });
         
         var desc = tracts.append("desc")
@@ -241,7 +241,7 @@
         var dropdown = d3.select("body")
             .append("select")
             .attr("class", "dropdown")
-            .on("change", function(){
+            .on("change", () => {
                 changeAttribute(this.value, csvData)
             });
         
@@ -254,8 +254,10 @@
             .data(eduAttrs)
             .enter()
             .append("option")
-            .attr("value", function(d){ return d })
-            .text(function(d){
+            .attr("value", (d) => {
+                return d
+            })
+            .text((d) => {
                 if(d == "noHighSchool"){
                     return "No High School";
                 } else if(d == "someHighSchool"){
@@ -280,7 +282,7 @@
         var colorScale = setColorScale(csvData);
 
         var tracts = d3.selectAll("[class^='tract']")
-            .style("fill", function(d){
+            .style("fill", (d) => {
                 return colorScale(d.properties[expressed])
             });
 
