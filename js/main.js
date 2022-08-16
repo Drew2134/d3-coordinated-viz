@@ -422,6 +422,15 @@
             .style("top", y + "px");
     };
 
+    function moveLabelBubble(d){
+        var x = d.clientX - 10,
+            y = d.clientY + 75;
+        
+        d3.select(".infolabel")
+            .style("left", x + "px")
+            .style("top", y + "px");
+    }
+
     // Copyright 2021 Observable, Inc.
     // Released under the ISC license.
     // https://observablehq.com/@d3/bubble-chart
@@ -507,7 +516,7 @@
                 dehighlightBubble(d.fromElement)
             })
             .on("mousemove", (d) => {
-                moveLabel(d)
+                moveLabelBubble(d)
             });;
     
         if (T) leaf.append("title")
