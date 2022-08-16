@@ -233,10 +233,8 @@
                         value: d => d.value,
                         fill: d => colorScale(d.value),
                         width: 800
-                    });
-
-        var chartSVG = d3.selectAll("[class^='bubble'")
-            .on("mouseover", (d) => {
+                    })
+                     .on("mouseover", (d) => {
                 highlight(d.target.__data__.properties);
             })
             .on("mouseout", (d) => {
