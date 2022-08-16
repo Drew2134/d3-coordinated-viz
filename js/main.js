@@ -114,6 +114,7 @@
 
         colorScale.domain(domainArray);
 
+        colorScale.quantile()
         return colorScale;
     }
 
