@@ -226,7 +226,7 @@
             data.push(datum);
         }
         
-        var bubble = BubbleChart(data, {
+        var bubbleChart = BubbleChart(data, {
                         name: d => "bubble_" + d.name.replace(".", "-"),
                         label: d => "",
                         title: d => "Census Tract: " + d.name + "\nCount: " + d.value,
@@ -234,7 +234,18 @@
                         fill: d => colorScale(d.value),
                         width: 800
                     });
-        $(".chartDiv").append(bubble);
+
+        var chartSVG = d3.selectAll("[class^='bubble'")
+            .on("mouseover", (d) => {
+                highlight(d.target.__data__.properties);
+            })
+            .on("mouseout", (d) => {
+                dehighlight(d.fromElement.__data__.properties)
+            })
+            .on("mousemove", (d) => {
+                moveLabel(d)
+            });
+        $(".chartDiv").append(bubbleChart);
     }
 
     function createDropdown(csvData){
@@ -281,7 +292,6 @@
 
         var tracts = d3.selectAll("[class^='tract']")
             .style("fill", function(d){
-                console.log("SELECTED")
                 return colorScale(d.properties[expressed])
             });
 
