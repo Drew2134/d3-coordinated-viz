@@ -227,7 +227,7 @@
         }
         
         var bubble = BubbleChart(data, {
-                        name: d => d.name,
+                        name: d => "tracts_" + d.name.replace(".", "-"),
                         label: d => "",
                         title: d => "Census Tract: " + d.name + "\nCount: " + d.value,
                         value: d => d.value,
@@ -388,6 +388,7 @@
         const color = G && d3.scaleOrdinal(groups, colors);
     
         // Compute labels and titles.
+        const N = label == null ? null : d3.map(data, name);
         const L = label == null ? null : d3.map(data, label);
         const T = title === undefined ? L : title == null ? null : d3.map(data, title);
     
@@ -423,7 +424,7 @@
             .attr("fill", G ? d => color(G[d.data]) : fill == null ? "none" : fill)
             .attr("fill-opacity", fillOpacity)
             .attr("r", d => d.r)
-            .attr("class", d => T[d.data]);
+            .attr("class", d => N[d.data]);
     
         if (T) leaf.append("title")
             .text(d => T[d.data]);
