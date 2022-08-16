@@ -136,7 +136,9 @@
         return dcTracts;
     }
 
+    //create a choropleth map
     function setEnumerationUnits(dcTracts, map, path, colorScale){
+        //draws the census tracts
         var tracts = map.selectAll(".tracts")
             .data(dcTracts)
             .enter()
@@ -147,15 +149,19 @@
             })
             .attr("d", path)
             .style("fill", function(d){
+                //uses the color scale to return appropriate color
                 return colorScale(d.properties[expressed])
             })
             .on("mouseover", (e) => {
+                //pass current target to highlight function
                 highlight(e.target.__data__.properties);
             })
             .on("mouseout", (e) => {
+                //pass previous target to dehighlight function
                 dehighlight(e.fromElement.__data__.properties)
             })
             .on("mousemove", (e) => {
+                //listen for cursor move and pass to move label function
                 moveLabel(e)
             });
         
@@ -163,23 +169,28 @@
             .text('{"stroke": "#000", "stroke-width": "0.5px"}');
     }
 
+    //create an inset map to show we are looking at D.C.
     function setInset(usStates, dcTracts) {
+        //inset div size properties
         var width = 300,
             height = 300
             viewBox = "0 0 300 300";
-        
+
+        //create inset div container        
         var insetDiv = d3.select(".mapDiv")
             .append("div")
             .attr("width", width)
             .attr("height", height)
             .classed("insetDiv", true);
         
+        //create an svg in the inset div container
         var inset = d3.select(".insetDiv")
             .append("svg")
             .attr("preserveAspectRatio", "xMinYMin meet")
             .attr("viewBox", viewBox)
             .classed("inset", true)
         
+        //center on D.C. and zoom out
         var prj = d3.geoAlbers()
             .center([0, 38.90])
             .rotate([77.038, 0])
@@ -190,12 +201,14 @@
         var path = d3.geoPath()
             .projection(prj)
 
+        //draw the state outlines
         var states = inset.append("path")
             .datum(usStates)
             .attr("class", "states")
             .attr("d", path)
             .style("fill", "#E6E6E6");
 
+        //draw the tract outlines and color red to stand out
         var tracts = inset.selectAll(".tracts")
             .data(dcTracts)
             .enter()
@@ -207,7 +220,9 @@
             .style("fill", "red"); 
     }
 
+    //function to set up the bubble chart and display it on the page
     function setChart(csvData, colorScale) {
+        //chart div size properties
         var width = window.innerWidth * 0.48,
             height = window.innerHeight * 0.80,
             viewBox = "0 0 " + width + " " + height;
@@ -218,6 +233,8 @@
             .attr("height", height)
             .classed("chartDiv", true);
 
+        //gather the data to pass to the bubble chart constructor
+        //bubble chart only takes a name and a value as the data
         data = [];
         for(var i = 0; i < csvData.length; i++){
             datum = {};
@@ -226,6 +243,7 @@
             data.push(datum);
         }
         
+        //create the bubble chart
         var bubbleChart = BubbleChart(data, {
                         name: d => "bubble_" + d.name.replace(".", "-"),
                         label: d => "",
@@ -234,10 +252,13 @@
                         fill: d => colorScale(d.value),
                         width: 800
                     });
+        //append the bubble chart svg to the chart div
         $(".chartDiv").append(bubbleChart);
     }
 
+    //create a new dropdown
     function createDropdown(csvData){
+        //create dropdown element
         var dropdown = d3.select("body")
             .append("select")
             .attr("class", "dropdown")
@@ -245,11 +266,13 @@
                 changeAttribute(this.value, csvData)
             });
         
+        //default value of the dropdown list
         var titleOption = dropdown.append("option")
             .attr("class", "titleOption")
             .attr("disabled", "true")
             .text("Select Education Level");
         
+        //create new list items from education attributes        
         var attrOptions = dropdown.selectAll("attrOptions")
             .data(eduAttrs)
             .enter()
@@ -258,6 +281,7 @@
                 return d
             })
             .text((d) => {
+                //return a formatted version of the field names as the dropdown items
                 if(d == "noHighSchool"){
                     return "No High School";
                 } else if(d == "someHighSchool"){
@@ -295,7 +319,7 @@
         setChart(csvData, colorScale);
     }
 
-    //highligh tracts and linked bubbles on tract mouseover
+    //highlight tracts and linked bubbles on tract mouseover
     function highlight(props){
         var className = ".tracts_" + props.NAME.replace(".", "-")
         var selectedTract = d3.selectAll(className)
