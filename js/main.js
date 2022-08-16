@@ -234,16 +234,6 @@
                         fill: d => colorScale(d.value),
                         width: 800
                     });
-        var chart = d3.selectAll("[class^='bubble']")
-                     .on("mouseover", console.log("over")/*(d) => {
-                highlight(d.target.__data__.properties);*/
-            )
-            .on("mouseout", (d) => {
-                dehighlight(d.fromElement.__data__.properties)
-            })
-            .on("mousemove", (d) => {
-                moveLabel(d)
-            });
         $(".chartDiv").append(bubbleChart);
     }
 
@@ -444,7 +434,16 @@
             .attr("fill", G ? d => color(G[d.data]) : fill == null ? "none" : fill)
             .attr("fill-opacity", fillOpacity)
             .attr("r", d => d.r)
-            .attr("class", d => N[d.data]);
+            .attr("class", d => N[d.data])
+            .on("mouseover", console.log("over")/*(d) => {
+                highlight(d.target.__data__.properties);*/
+            )
+            .on("mouseout", (d) => {
+                dehighlight(d.fromElement.__data__.properties)
+            })
+            .on("mousemove", (d) => {
+                moveLabel(d)
+            });;
     
         if (T) leaf.append("title")
             .text(d => T[d.data]);
