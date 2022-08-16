@@ -416,7 +416,6 @@
             .attr("target", link == null ? null : linkTarget)
             .attr("transform", d => `translate(${d.x},${d.y})`);
     
-        console.log(d => d.data)
         leaf.append("circle")
             .attr("stroke", stroke)
             .attr("stroke-width", strokeWidth)
@@ -424,7 +423,7 @@
             .attr("fill", G ? d => color(G[d.data]) : fill == null ? "none" : fill)
             .attr("fill-opacity", fillOpacity)
             .attr("r", d => d.r)
-            .attr("class", d => d.data);
+            .attr("class", d => T[d.data]);
     
         if (T) leaf.append("title")
             .text(d => T[d.data]);
