@@ -241,7 +241,7 @@
         var dropdown = d3.select("body")
             .append("select")
             .attr("class", "dropdown")
-            .on("change", () => {
+            .on("change", function(){
                 changeAttribute(this.value, csvData)
             });
         
