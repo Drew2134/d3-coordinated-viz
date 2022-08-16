@@ -345,6 +345,9 @@
             .style("stroke", "#000000")
             .style("stroke-width", "0");
 
+        d3.select(".infolabel")
+            .remove();
+
     }
 
     function setLabel(props){
