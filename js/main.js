@@ -303,7 +303,7 @@
     }
 
     function highlightBubble(props){
-        console.log(props.className, props.constructor.name, typeof props)
+        console.log(props.className.baseVal)
         var selected = d3.selectAll(props.className)
             .style("stroke", "magenta")
             .style("stroke-width", "3.5");
