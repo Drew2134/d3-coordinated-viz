@@ -285,7 +285,7 @@
 
         //style the census tracts with the new color scale
         var tracts = d3.selectAll("[class^='tract']")
-            .style("fill", (d) => {
+            .style("fill", function(d){
                 return colorScale(d.properties[expressed])
             });
 
@@ -422,9 +422,9 @@
     }
 
     //wanted popup to appear on the left of the object
-    function moveLabelBubble(d){
-        var x = d.clientX - 380,
-            y = d.clientY - 75;
+    function moveLabelBubble(cursor){
+        var x = cursor.clientX - 380,
+            y = cursor.clientY - 75;
         
         d3.select(".infolabel")
             .style("left", x + "px")
