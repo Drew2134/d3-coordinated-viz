@@ -235,9 +235,9 @@
                         width: 800
                     });
         var chart = d3.selectAll(".bubble")
-                     .on("mouseover", (d) => {
-                highlight(d.target.__data__.properties);
-            })
+                     .on("mouseover", console.log("over")/*(d) => {
+                highlight(d.target.__data__.properties);*/
+            )
             .on("mouseout", (d) => {
                 dehighlight(d.fromElement.__data__.properties)
             })
