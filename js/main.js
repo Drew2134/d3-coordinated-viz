@@ -228,7 +228,7 @@
         
         var bubble = BubbleChart(data, {
                         name: d => d.name,
-                        label: "",
+                        label: d => "",
                         title: d => "Census Tract: " + d.name + "\nCount: " + d.value,
                         value: d => d.value,
                         fill: d => colorScale(d.value),
