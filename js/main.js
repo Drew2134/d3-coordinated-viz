@@ -293,7 +293,7 @@
         var className = ".tracts_" + props.NAME.replace(".", "-")
         var selected = d3.selectAll(className)
             .style("stroke", "red")
-            .style("stroke-width", "2.5");
+            .style("stroke-width", "3.5");
         
         setLabel(props);
     }
@@ -302,7 +302,7 @@
         var className = ".tracts_" + props.NAME.replace(".", "-")
         var selected = d3.selectAll(className)
             .style("stroke", "#000000")
-            .style("stroke-width", "0.5");
+            .style("stroke-width", "0");
         d3.select(".infolabel")
             .remove();
     }
