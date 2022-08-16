@@ -141,7 +141,7 @@
             .data(dcTracts)
             .enter()
             .append("path")
-            .attr("class", function(d) {
+            .attr("class", (d) => {
                 var className = d.properties.NAME.replace(".", "-")
                 return "tracts_" + className;
             })
