@@ -311,12 +311,15 @@
         var selectedTract = d3.selectAll(".tracts_" + tract_num)
             .style("stroke", "magenta")
             .style("stroke-width", "3.5");
+
+        console.log(props)
         
         var propsObj = {
             NAME: tract_num.replace("-", "."),
+            VALUE: props
         }
 
-        setLabel(propsObj)
+        setLabelBubble(propsObj)
         
     }
 
@@ -379,6 +382,28 @@
         var regionName = infolabel.append("div")
             .attr("class", "labelname")
             .html(label);
+    }
+
+    function setLabelBubble(props){
+        var label = ""
+        if(expressed == "noHighSchool"){
+            label = "No High School";
+        } else if(expressed == "someHighSchool"){
+            label = "Some High School";
+        } else if(expressed == "highSchoolGraduate"){
+            label = "High School Graduate";
+        } else if(expressed == "someCollege"){
+            label = "Some College";
+        } else if(expressed == "associates"){
+            label = "Associates Degree";
+        } else if(expressed == "bachelors"){
+            label = "Bachelors Degree";
+        } else if(expressed == "graduate"){
+            label = "Graduate Degree";
+        }
+
+        var labelAttr = "<h1>Census Tract: " + props.NAME + "</h1><h2>" + props.VALUE + "</h2>"
+
     }
 
     function moveLabel(d){
