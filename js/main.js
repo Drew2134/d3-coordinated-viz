@@ -94,6 +94,7 @@
 
     //use d3 scale qunatile to create a color scale for choropleth mapping
     function setColorScale(data){
+        //range of colors to use as mapping scale
         var colorClasses = [
             "#edf8fb",
             "#b2e2e2",
@@ -111,11 +112,13 @@
             domainArray.push(val);
         };
 
+        //pass array of all expressed values to the domain of the color scale
         colorScale.domain(domainArray);
 
         return colorScale;
     }
 
+    //join the csv data to the census tracts
     function joinData(dcTracts, csvData){
         for (var i=0; i < csvData.length; i++){
             var csvRegion = csvData[i];
