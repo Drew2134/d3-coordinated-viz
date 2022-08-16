@@ -440,7 +440,7 @@
             .attr("r", d => d.r)
             .attr("class", d => N[d.data])
             .on("mouseover", (d) => {
-                console.log(d.target.class);
+                console.log(d.target.className);
                 highlightBubble(d.target);
             })
             .on("mouseout", (d) => {
