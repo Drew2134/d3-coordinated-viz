@@ -233,7 +233,8 @@
                         value: d => d.value,
                         fill: d => colorScale(d.value),
                         width: 800
-                    })
+                    });
+        var chart = d3.selectAll(".bubble")
                      .on("mouseover", (d) => {
                 highlight(d.target.__data__.properties);
             })
