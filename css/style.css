@@ -3,7 +3,7 @@ html, body {
 }
 
 body {
-    height: 97vh;
+    height: 97.5vh;
     border: solid
 }
 
@@ -36,7 +36,7 @@ body {
     position: absolute;
     top: 0;
     left: 0;
-    border: medium solid #9f9f9f;
+    border: medium solid #000000;
     margin: 10px 0px 0px 1vw;
     background-color: #D5E3FF;
 }
