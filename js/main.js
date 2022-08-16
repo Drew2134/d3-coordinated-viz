@@ -227,7 +227,7 @@
         }
         
         var bubble = BubbleChart(data, {
-                        name: d => "",
+                        name: d => d.name,
                         title: d => "Census Tract: " + d.name + "\nCount: " + d.value,
                         value: d => d.value,
                         fill: d => colorScale(d.value),
@@ -423,7 +423,7 @@
             .attr("fill", G ? d => color(G[d.data]) : fill == null ? "none" : fill)
             .attr("fill-opacity", fillOpacity)
             .attr("r", d => d.r)
-            .attr("class", );
+            .attr("class", name);
     
         if (T) leaf.append("title")
             .text(d => T[d.data]);
