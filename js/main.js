@@ -294,6 +294,11 @@
         var selected = d3.selectAll(className)
             .style("stroke", "magenta")
             .style("stroke-width", "3.5");
+            
+        var bubbleName = ".bubble_" + props.NAME.replace(".", "-")
+        var selected = d3.selectAll(bubbleName)
+            .style("stroke", "magenta")
+            .style("stroke-width", "3.5");
         
         setLabel(props);
     }
@@ -303,6 +308,12 @@
         var selected = d3.selectAll(className)
             .style("stroke", "#000000")
             .style("stroke-width", "0");
+            
+        var bubbleName = ".bubble_" + props.NAME.replace(".", "-")
+        var selected = d3.selectAll(bubbleName)
+            .style("stroke", "#000000")
+            .style("stroke-width", "0");
+
         d3.select(".infolabel")
             .remove();
     }
