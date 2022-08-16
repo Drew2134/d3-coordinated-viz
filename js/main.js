@@ -312,6 +312,12 @@
             .style("stroke", "magenta")
             .style("stroke-width", "3.5");
         
+        var propsObj = {
+            NAME: tract_num.replace("-", "."),
+        }
+
+        setLabel(propsObj)
+        
     }
 
     function dehighlight(props){
