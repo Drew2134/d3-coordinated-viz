@@ -290,12 +290,12 @@
 
     function highlight(props){
         var className = ".tracts_" + props.NAME.replace(".", "-")
-        var selected = d3.selectAll(className)
+        var selectedTract = d3.selectAll(className)
             .style("stroke", "magenta")
             .style("stroke-width", "3.5");
             
         var bubbleName = ".bubble_" + props.NAME.replace(".", "-")
-        var selected = d3.selectAll(bubbleName)
+        var selectedBubble = d3.selectAll(bubbleName)
             .style("stroke", "magenta")
             .style("stroke-width", "3.5");
         
@@ -304,26 +304,41 @@
 
     function highlightBubble(props){
         var tract_num = props.className.baseVal.slice(7)
-        var selected = d3.selectAll(".bubble_" + tract_num)
+        var selectedBubble = d3.selectAll(".bubble_" + tract_num)
             .style("stroke", "magenta")
             .style("stroke-width", "3.5");
         
+        var selectedTract = d3.selectAll(".tracts_" + tract_num)
+            .style("stroke", "magenta")
+            .style("stroke-width", "3.5");
         
     }
 
     function dehighlight(props){
         var className = ".tracts_" + props.NAME.replace(".", "-")
-        var selected = d3.selectAll(className)
+        var selectedTract = d3.selectAll(className)
             .style("stroke", "#000000")
             .style("stroke-width", "0");
             
         var bubbleName = ".bubble_" + props.NAME.replace(".", "-")
-        var selected = d3.selectAll(bubbleName)
+        var selectedBubble = d3.selectAll(bubbleName)
             .style("stroke", "#000000")
             .style("stroke-width", "0");
 
         d3.select(".infolabel")
             .remove();
+    }
+
+    function dehighlightBubble(props){
+        var tract_num = props.className.baseVal.slice(7)
+        var selectedBubble = d3.selectAll(".bubble_" + tract_num)
+            .style("stroke", "#000000")
+            .style("stroke-width", "0");
+            
+        var selectedTract = d3.selectAll(".tracts_" + tract_num)
+            .style("stroke", "#000000")
+            .style("stroke-width", "0");
+
     }
 
     function setLabel(props){
@@ -448,7 +463,7 @@
                 highlightBubble(d.target);
             })
             .on("mouseout", (d) => {
-                dehighlightBubble(d.fromElement.__data__.properties)
+                dehighlightBubble(d.fromElement)
             })
             .on("mousemove", (d) => {
                 moveLabel(d)
